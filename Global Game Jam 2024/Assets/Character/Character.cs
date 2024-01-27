@@ -24,6 +24,7 @@ public abstract class Character : MonoBehaviour {
     public  BattleManager battleManager;
     public void SetBattleManager(BattleManager bm) { battleManager = bm; } 
     public bool isDead = false;
+    public bool canChooseTarget = true; // will be used with dr sott's publicness
 
     //Which team does this character belong to
     public enum Team {
@@ -67,7 +68,7 @@ public abstract class Character : MonoBehaviour {
     protected abstract void InitiateSoundEffects();
 
     //  play the sound effect at the sound label
-    protected void PlaySound(string soundLabel) {
+    public void PlaySound(string soundLabel) {
         if (characterSoundEffects.TryGetValue(soundLabel, out var clip)) {
             if (audioSource != null) {
                 audioSource.clip = clip;

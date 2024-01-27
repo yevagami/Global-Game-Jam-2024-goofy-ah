@@ -4,9 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Character_DrSottLeaver : Character {
+    //  Logic-based variables
     public bool hasLeft = false;
-    public float currentLeaveChance;
+    public float currentLeaveChance = 5.0f;
     public float currentLeaveIncrementPerTurn = 5.0f;
+
+    //  Sott's stats
+    private float bossDefense = 35.0f;
+    private float bossAttack = 30.0f;
+    private float bossHP = 200.0f;
+    
     
     protected override void InitiateSoundEffects() {
         characterSoundEffects.Add("dont piss me off", Resources.Load<AudioClip>("Sounds/Dr Sott/dont piss me off"));
@@ -32,6 +39,8 @@ public class Character_DrSottLeaver : Character {
 
     private void Awake() {
         name = "Dr. Sott Leaver (PH.D)";
-        currentLeaveChance = 5.0f;
+        currentAttack = bossAttack;
+        currentHealth = bossHP;
+        currentDefense = bossDefense;
     }
 }
