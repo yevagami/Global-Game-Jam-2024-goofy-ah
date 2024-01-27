@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< Updated upstream
 public class Character_Michael : Character {
+=======
+public class Character_Michael : Character
+{
+
+>>>>>>> Stashed changes
     bool endTurn = false;
 
     public override bool StartTurn(int currentSkillPointCount)
@@ -29,6 +35,6 @@ public class Character_Michael : Character {
     // Start is called before the first frame update
     void Start()
     {
-
+        name = "Michael";
     }
 }

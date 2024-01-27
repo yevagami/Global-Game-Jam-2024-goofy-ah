@@ -6,7 +6,10 @@ public class Character_Adriel : Character
 {
     bool endTurn = false;
     
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     public override bool StartTurn(int currentSkillPointCount)
     {
         if (Input.GetKeyUp(KeyCode.B))
@@ -31,6 +34,6 @@ public class Character_Adriel : Character
     // Start is called before the first frame update
     void Start()
     {
-
+        name = "Adriel";
     }
 }

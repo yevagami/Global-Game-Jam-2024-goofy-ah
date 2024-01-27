@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour {
+    public TextChange battleStats;
     //For the sake of testing
     public List<GameObject> characterObjects = new List<GameObject>();
     List<Character> participants = new List<Character>();
@@ -54,7 +55,7 @@ public class BattleManager : MonoBehaviour {
         }
 
         DebugPrintBattleStatus();
-
+        battleStats.setText(participants[currentTurnIndex]);
         //If the turn has finished
         if (!participants[currentTurnIndex].StartTurn(skillPoints)) {
             currentTurnIndex++;

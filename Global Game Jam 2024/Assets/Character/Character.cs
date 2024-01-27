@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -42,6 +43,8 @@ public abstract class Character : MonoBehaviour {
     public bool canFollowUp;
     public bool isBuffed, isAltered;
 
+    //names for our characters
+    public string name;
     //  sound effects
     protected Dictionary<string, AudioClip> characterSoundEffects;
     public AudioSource audioSource;
