@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour {
-    public TextChange battleStats; 
+    [SerializeField] GameManager manager;
+
+    public TextChange battleStats;
     //For the sake of testing
     public List<GameObject> characterObjects = new List<GameObject>();
     List<Character> participants = new List<Character>();
@@ -12,24 +14,24 @@ public class BattleManager : MonoBehaviour {
     public int currentTurnIndex = 0; //Who's turn it is 
     public int turnCounter = 0; //Honkai star rail rules. This only increments once everyone got a turn
     public int skillPoints = 3;
-    
+
     //State machine time babyyyyy
-    enum States { Start, Play, End}
+    enum States { Start, Play, End }
     States currentState = States.Start;
 
     // Update is called once per frame
-    void Update(){
+    void Update() {
         switch (currentState) {
             case States.Start:
                 //Adds the gameobjects into a list of participants
-                for(int i = 0; i < characterObjects.Count; i++) {
+                for (int i = 0; i < characterObjects.Count; i++) {
                     Character temp = characterObjects[i].GetComponent<Character>();
-                    if(temp == null) { continue; }
+                    if (temp == null) { continue; }
                     participants.Add(temp);
                 }
 
                 //Set the battle manager of the participants to this
-                for(int i = 0; i < participants.Count; i++) {
+                for (int i = 0; i < participants.Count; i++) {
                     if (participants[i] != null) {
                         participants[i].SetBattleManager(this);
                     }
@@ -40,10 +42,11 @@ public class BattleManager : MonoBehaviour {
 
             case States.Play:
                 if (!Battle()) { currentState = States.End; }
-                break; 
-            
+                break;
+
             case States.End:
                 Debug.Log("Battle is over");
+                manager.CloseBattleScreen();
                 break;
         }
     }
@@ -72,14 +75,14 @@ public class BattleManager : MonoBehaviour {
 
     //Check the gameover condition
     bool GameOver() {
-        if(participants.Count <= 0) { return true; }
+        if (participants.Count <= 0) { return true; }
 
         //Check if there are enemies and teammates on the field, THAT are not dead
         bool playerAlive = false;
         bool enemiesAlive = false;
 
         //Check if players are alive
-        for(int i = 0; i < participants.Count; i++) {
+        for (int i = 0; i < participants.Count; i++) {
             if (participants[i].currentTeam == Character.Team.FRIEND && participants[i].isDead == false) {
                 playerAlive = true;
                 break;
@@ -87,7 +90,7 @@ public class BattleManager : MonoBehaviour {
         }
 
         //Check if enemies are alive
-        for(int i = 0; i < participants.Count; i++) {
+        for (int i = 0; i < participants.Count; i++) {
             if (participants[i].currentTeam == Character.Team.ENEMY && participants[i].isDead == false) {
                 enemiesAlive = true;
                 break;
@@ -98,6 +101,14 @@ public class BattleManager : MonoBehaviour {
     }
 
     void DebugPrintBattleStatus() {
-        Debug.Log(participants[currentTurnIndex].gameObject.name + " | Turn Index: " +  currentTurnIndex + " | Turn Counter: " + turnCounter + " | Skill Points: " + skillPoints);
+        Debug.Log(participants[currentTurnIndex].gameObject.name + " | Turn Index: " + currentTurnIndex + " | Turn Counter: " + turnCounter + " | Skill Points: " + skillPoints);
+    }
+
+    public void Reset() {
+        currentTurnIndex = 0;
+        turnCounter = 0; 
+        skillPoints = 3;
+        currentState = States.Start;
+        participants.Clear();
     }
 }

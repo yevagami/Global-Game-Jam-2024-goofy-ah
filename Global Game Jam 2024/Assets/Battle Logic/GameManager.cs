@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour{
     enum GameState { Overworld, Battle}
     GameState current = GameState.Overworld;
     [SerializeField] BattleManager battleManager;
-    public bool ChageScreen = false;
+    public bool StartBattle = false;
+    public bool EndBattle = false;
 
     // Start is called before the first frame update
     void Start(){
@@ -17,19 +18,31 @@ public class GameManager : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        if (ChageScreen) {
+        if (StartBattle) {
             OpenBattleScreen(null);
+        }
+
+        if (EndBattle) {
+            CloseBattleScreen();
         }
     }
 
-    void OpenBattleScreen(GameObject opponent) {
+    //Opens the battle screen
+    public void OpenBattleScreen(GameObject opponent) {
         if(opponent != null) {
-            battleManager.characterObjects.Add(opponent);
+            Character temp = opponent.GetComponent<Character>();
+            battleManager.GetParticipants().Add(temp);
         }
         DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene("BattleScene");
         battleManager.enabled = true;
     }
 
-    void CloseBattleScreen() { }
+    //Closes the battle screen
+    public void CloseBattleScreen() {
+        DontDestroyOnLoad(gameObject);
+        SceneManager.LoadScene("Overworld");
+        battleManager.Reset();
+        battleManager.enabled = false;
+    }
 }
