@@ -7,7 +7,7 @@ public class Character_Diana : Character
 {
     bool endTurn = false;
 
-    
+
     public override bool StartTurn(int currentSkillPointCount)
     {
         if (Input.GetKeyUp(KeyCode.D))
@@ -24,21 +24,18 @@ public class Character_Diana : Character
         return;
     }
 
-    protected override void InitiateSoundEffects() {
+    protected override void InitiateSoundEffects()
+    {
         characterSoundEffects.Add("Talent", Resources.Load<AudioClip>("Sounds/talentSoundDiana.ogg"));
         characterSoundEffects.Add("Skill", Resources.Load<AudioClip>("Sounds/skillSoundDiana.ogg"));
         characterSoundEffects.Add("Ultimate", Resources.Load<AudioClip>("Sounds/talentSoundDiana.ogg"));
-
-    //
-    // Start is called before the first frame update
-    void Awake()
-    {
-        name = "Diana";
     }
 
-
-    private void Awake() {
-        baseHealth = 125.0f; currentHealth = baseHealth;
+    private void Awake()
+    {
+        name = "Diana";
+        baseHealth = 125.0f;
+        currentHealth = baseHealth;
         currentDefense = baseDefense;
         currentAttack = baseAttack;
     }

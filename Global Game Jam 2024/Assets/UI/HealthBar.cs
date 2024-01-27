@@ -15,6 +15,6 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.value = character.health;
+        slider.value = character.currentHealth;
     }
 }
