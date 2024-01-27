@@ -17,7 +17,8 @@ public class StatusDepressed : StatusEffect {
 public abstract class Character : MonoBehaviour
 {
     //Reference to the gamemode/battle manager
-    public BattleManager GameMaster;
+    BattleManager battleManager;
+    public void SetBattleManager(BattleManager bm) { battleManager = bm; } 
     public bool isDead = false;
 
     //Which team does this character belong to

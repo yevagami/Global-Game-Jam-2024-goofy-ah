@@ -6,11 +6,17 @@ public class Character_Test : Character
 {
     //Override some of the values
     public override bool StartTurn(int currentSkillPointCount) {
-        throw new System.NotImplementedException();
+        Debug.Log("Character_Test's Turn");
+        if(Input.GetKeyDown(KeyCode.A)) {
+            Debug.Log("Character_Test's Turn Has Ended");
+            return false;
+        }
+
+        return true;
     }
 
     public override void Update() {
-        return;
+        throw new System.NotImplementedException();
     }
 
     //

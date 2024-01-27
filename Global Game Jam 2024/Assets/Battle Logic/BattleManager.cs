@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour {
-    List<Character> participants = new List<Character>();
+    //For the sake of testing
 
-    int currentTurnIndex = 0; //Who's turn it is 
-    int turnCounter = 0; //Honkai star rail rules. This only increments once everyone got a turn
-    int skillPoints = 3;
+    List<Character> participants = new List<Character>();
+    public List<Character> GetParticipants() { return participants; }
+
+    public int currentTurnIndex = 0; //Who's turn it is 
+    public int turnCounter = 0; //Honkai star rail rules. This only increments once everyone got a turn
+    public int skillPoints = 3;
     
     //State machine time babyyyyy
     enum States { Start, Play, End}
     States currentState = States.Start;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
         switch (currentState) {
             case States.Start:
-
+                //Set the battle manager of the participants to this
+                for(int i = 0; i < participants.Count; i++) {
+                    if (participants[i] != null) {
+                        participants[i].SetBattleManager(this);
+                    }
+                }
                 break;
 
             case States.Play:
@@ -41,11 +43,22 @@ public class BattleManager : MonoBehaviour {
             return false; //Ends the battle if the conditions have been met
         }
 
-        currentTurnIndex++;
+        //If the turn index has gone through every participant, start from the beginning
+        if(currentTurnIndex >= participants.Count) {
+            currentTurnIndex = 0;
+            turnCounter++;
+        }
+
+        //If the turn has finished
+        if (!participants[currentTurnIndex].StartTurn(skillPoints)) {
+            currentTurnIndex++;
+        }
+        
 
         return true;
     }
 
+    //Check the gameover condition
     bool GameOver() {
         //Check if there are enemies and teammates on the field, THAT are not dead
         bool playerAlive = false;
