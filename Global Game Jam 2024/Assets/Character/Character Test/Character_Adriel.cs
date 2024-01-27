@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Character_Adriel : Character
+{
+    bool endTurn = false;
+    public override bool StartTurn(int currentSkillPointCount)
+    {
+        if (Input.GetKeyUp(KeyCode.B))
+        {
+            Debug.Log("Adriel's Turn Has Ended");
+            return false;
+        }
+
+        return true;
+    }
+    public override void Update()
+    {
+        return;
+    }
+
+    protected override void InitiateSoundEffects()
+    {
+        return;
+    }
+
+    //
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+}
