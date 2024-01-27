@@ -35,8 +35,8 @@ public class MichealSkill : Skill
     public override void ActivateSkill()
     {
         other.TakeDamage();
-        if (Michael.followupChance == true) {
-            System.Random random = new System.Random();
+        if (Michael.canFollowUp == true) {
+            System.Random random = new();
             int randomVal = random.Next(2);
             bool result = (randomVal == 1);
             if (result == true) {

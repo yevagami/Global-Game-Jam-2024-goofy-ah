@@ -51,7 +51,7 @@ public class MichaelPassive : Passive
     public override void ActivatePassive()
     {
 
-        Michael.followupChance = true;
+        Michael.canFollowUp = true;
 
     }
 }
