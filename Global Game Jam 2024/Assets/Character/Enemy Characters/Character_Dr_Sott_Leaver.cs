@@ -29,8 +29,14 @@ public class Character_DrSottLeaver : Character {
     }
 
     public override bool StartTurn(int currentSkillPointCount) {
-        throw new System.NotImplementedException();
+        if (Input.GetKeyUp(KeyCode.S)) {
+            Debug.Log("Sotts's Turn Has Ended");
+            return false;
+        }
+
+        return true;
     }
+
     
     public override void TakeDamage(float recievedDamage)
     {

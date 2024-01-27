@@ -6,8 +6,7 @@ public class HealthBar : MonoBehaviour {
     public Slider slider;
     public Character character;
 
-    void Update()
-    {
+    void Update() {
         slider.value = character.currentHealth;
     }
 }
