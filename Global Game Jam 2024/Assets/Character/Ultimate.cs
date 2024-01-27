@@ -36,7 +36,7 @@ public class MichaelUltimate : Ultimate
     float mORE = 50;
     public override void UseUltimate()
     {
-        Michael.attackDMG += mORE;
+        Michael.attack += mORE;
         Michael.isAltered = true;
     }
 }

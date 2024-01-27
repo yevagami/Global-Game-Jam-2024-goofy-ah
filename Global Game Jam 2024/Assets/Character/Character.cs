@@ -10,12 +10,39 @@ public abstract class Character : MonoBehaviour {
     public float defense = 20.0f;
 
     public float attackDMG = 15.0f;
+public abstract class StatusEffect : MonoBehaviour {
+    abstract public void ApplyStatus();
+}
+
+public class StatusDepressed : StatusEffect {
+    public override void ApplyStatus() {
+        Debug.Log("YOu are depressed");
+    }
+}
+
+public abstract class Character : MonoBehaviour
+{
+    //Reference to the gamemode/battle manager
+    public BattleManager GameMaster;
+    public bool isDead = false;
+
+    //Which team does this character belong to
+    public enum Team { FRIEND, ENEMY };
+    public Team currentTeam;
+
+    //public for now (maybe change later?)
+    public float health = 100.0f;
+    public float defense = 20.0f;
+    public float attack = 15.0f;
 
     //array for debuffs
     public bool isSad, isDepressed, isTaunting, isTaunted, isDoubting;
+
+    public StatusEffect[] statussies;
     public bool canFollowUp;
 
     public bool isBuffed, isAltered;
+
     //passive, attack, ultimate
     //actions: attack, heal, 
 
