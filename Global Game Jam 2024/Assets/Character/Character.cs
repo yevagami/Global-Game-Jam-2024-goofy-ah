@@ -5,17 +5,18 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour
 {
     //public for now (maybe change later?)
-    public float health= 100.0f;
+    public float health = 100.0f;
     public float defense= 20.0f;
     public float attackDMG= 15.0f;
     //array for debuffs
-    bool isSad, isDepressed, isTaunting, isTaunted, isDoubting;
+    public bool isSad, isDepressed, isTaunting, isTaunted, isDoubting;
+    public bool followupChance;
+    public bool isBuffed, isAltered;
     //passive, attack, ultimate
 
     //actions: attack, heal, 
     abstract public void StartTurn();
-    void Update()
-    {
-        
-    }
+    abstract public void TakeDamage();
+    abstract public void DealDamage();
+    abstract public void Update();
 }

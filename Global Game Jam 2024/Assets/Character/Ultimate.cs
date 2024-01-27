@@ -10,25 +10,33 @@ abstract public class Ultimate : MonoBehaviour
 }
 
 public class AdrielUltimate : Ultimate{
+    public Character other;
 
     public override void UseUltimate()
     {
-        throw new System.NotImplementedException();
+       other.isDepressed = true;
     }
 }
 public class DianaUltimate : Ultimate
 {
-
+    public Character Diana;
+    public Character Michael;
+    public Character Adriel;
     public override void UseUltimate()
     {
+        Michael.isBuffed = true;
+        Adriel.isBuffed = true;
+        Diana.TakeDamage();
         throw new System.NotImplementedException();
     }
 }
-public class MichealUltimate : Ultimate
+public class MichaelUltimate : Ultimate
 {
-
+    public Character Michael;
+    float mORE = 50;
     public override void UseUltimate()
     {
-        throw new System.NotImplementedException();
+        Michael.attackDMG += mORE;
+        Michael.isAltered = true;
     }
 }
