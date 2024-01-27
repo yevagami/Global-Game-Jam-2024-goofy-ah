@@ -90,5 +90,5 @@ public abstract class Character : MonoBehaviour {
         }
     }
 
-    abstract public void Update();
+    public abstract void Update();
 }

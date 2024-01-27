@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 
 public abstract class Passive : MonoBehaviour{
@@ -48,10 +49,21 @@ public class DianaPassive : Passive{
 public class MichaelPassive : Passive
 {
     public Character Michael;
-    public override void ActivatePassive()
-    {
-
+    public override void ActivatePassive() {
         Michael.canFollowUp = true;
+    }
+}
+
+public class SottPassive : Passive {
+    public Character_DrSottLeaver Sott;
+    
+    public override void ActivatePassive() {
+        if (!(Sott.currentLeaveChance < 80.0f)) return;
+        
+        Sott.currentLeaveChance += Sott.currentLeaveIncrementPerTurn;
+        
+        if (Random.Range(0.0f, 100.0f) < Sott.currentLeaveChance) Debug.Log("Sott has left.");
+        
 
     }
 }
