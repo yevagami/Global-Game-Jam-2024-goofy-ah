@@ -9,6 +9,10 @@ public class BattleManager : MonoBehaviour {
     int turnCounter = 0; //Honkai star rail rules. This only increments once everyone got a turn
     int skillPoints = 3;
     
+    //State machine time babyyyyy
+    enum States { Start, Play, End}
+    States currentState = States.Start;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,27 +22,34 @@ public class BattleManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Battle()) {
-            Debug.Log("Battle is over");
+        switch (currentState) {
+            case States.Start:
+
+                break;
+
+            case States.Play:
+                if (!Battle()) { currentState = States.End; }
+                break; 
+            
+            case States.End:
+                break;
         }
     }
 
     public bool Battle() {
         if (GameOver()) {
-            return true; //Ends the battle if the conditions have been met
+            return false; //Ends the battle if the conditions have been met
         }
 
         currentTurnIndex++;
 
-        return false;
+        return true;
     }
-
 
     bool GameOver() {
         //Check if there are enemies and teammates on the field, THAT are not dead
         bool playerAlive = false;
         bool enemiesAlive = false;
-
 
         //Check if players are alive
         for(int i = 0; i < participants.Count; i++) {
