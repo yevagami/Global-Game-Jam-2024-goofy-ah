@@ -72,7 +72,7 @@ public class BattleManager : MonoBehaviour {
 
     //Check the gameover condition
     bool GameOver() {
-        if(participants.Count <= 0) { return false; }
+        if(participants.Count <= 0) { return true; }
 
         //Check if there are enemies and teammates on the field, THAT are not dead
         bool playerAlive = false;
