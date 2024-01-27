@@ -25,12 +25,12 @@ public class BattleManager : MonoBehaviour {
 
     public bool Battle() {
         if (GameOver()) {
-            return false; //Ends the battle if the conditions have been met
+            return true; //Ends the battle if the conditions have been met
         }
 
         currentTurnIndex++;
 
-
+        return false;
     }
 
 

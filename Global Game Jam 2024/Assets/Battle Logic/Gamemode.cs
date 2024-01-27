@@ -41,39 +41,10 @@ public class TurnManager : MonoBehaviour {
             Debug.Log("Game is over!");
             return;
         }
-
-        //  have all players taken their turn?
-        if (currentCharacterIndex >= participants.Count) {
-            //  reset the index
-            currentCharacterIndex = 0;
-            //  enemy takes their turn
-            EnemyTurn();
-        } else {
-            //  otherwise its the players turn
-            PlayerTurn();
-        }
         //  increment the turn counter
         turnCounter++;
         //  repeat (recursion)
         StartNextTurn();
     }
-
-    private void PlayerTurn() {
-        Character currentPlayer = participants[currentCharacterIndex];
-        skipCurrentTurn = ShouldSkippidi(currentPlayer);
-
-        if (!skipCurrentTurn) {
-            int newSkillPointCount = currentPlayer.StartTurn(skillPoints);
-            currentCharacterIndex++;
-            skillPoints = newSkillPointCount;
-        }
-    }
-
-    private void EnemyTurn() {
-        //  enemy always has a skillpoint, so i hard set it to 1.
-        // he'll do his turns differently (rng to skip or not)
-        participants.StartTurn(1); //  same with player, unimplemented
-    }
-
 
 }
