@@ -18,25 +18,24 @@ public abstract class Character : MonoBehaviour
     
     
     //actions: attack, heal, 
-    abstract public void StartTurn();
+    abstract public int StartTurn(int currentSkillPointCount);
     public void TakeDamage(float recievedDamage) {
         float damageTaken = 0;
         damageTaken = recievedDamage * (1 - (defense / 100.0f));
         health -= damageTaken;
     }
-    abstract public void DealDamage();
     abstract public void Update();
 
 }
 
 public class CharacterAdriel : Character {
-    public override void StartTurn()
-    {
-        throw new NotImplementedException();
-    }
-    public override void DealDamage()
-    {
-        throw new NotImplementedException();
+    public override int StartTurn(int currentSkillPointCount) {
+        if (currentSkillPointCount == 0) {
+            Debug.Log("NO SKILLPOINTS! you whore.");
+            return currentSkillPointCount;
+        }
+        
+        return currentSkillPointCount;
     }
     public override void Update()
     {
