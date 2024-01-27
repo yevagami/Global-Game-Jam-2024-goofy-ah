@@ -7,8 +7,6 @@ public class Gamemode : MonoBehaviour
 {
     
     
-    
-    
 }
 
 public class TurnManager : MonoBehaviour
@@ -20,7 +18,6 @@ public class TurnManager : MonoBehaviour
 
     private int currentCharacterIndex = 0;
     private int turnCounter = 1;
-    
     private void Awake() {
         StartNextTurn();
     }
