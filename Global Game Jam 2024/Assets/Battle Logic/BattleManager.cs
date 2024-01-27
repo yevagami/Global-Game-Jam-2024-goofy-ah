@@ -12,6 +12,54 @@ public class BattleManager : MonoBehaviour {
     List<Character> participants = new List<Character>();
     public List<Character> GetParticipants() { return participants; }
 
+    //  returns Diana's Character
+    public Character_Diana GetDianaCharacter() {
+        return GetCharacterByTeam<Character_Diana>(Character.Team.FRIEND, "Diana");
+    } 
+    //  returns Michael's Character
+    public Character_Michael GetMichaelCharacter() {
+        return GetCharacterByTeam<Character_Michael>(Character.Team.FRIEND, "Michael");
+    }
+    //  returns Adriel's Chracter
+    public Character_Adriel GetAdrielCharacter() {
+        return GetCharacterByTeam<Character_Adriel>(Character.Team.FRIEND, "Adriel");
+    }
+
+    public T GetOtherCharacter<T>() where T : Character {
+        List<T> matchingCharacters = new();
+        
+        foreach (Character character in participants) {
+            if (character is T && character != null) {
+                matchingCharacters.Add((T)character);
+            }
+        }
+
+        if (matchingCharacters.Count > 0) {
+            return matchingCharacters[Random.Range(0, matchingCharacters.Count)];
+        }
+
+        return null; // return null if nothing
+    }
+    
+    
+    //  returns a Character's child type based off their team and the name
+    public T GetCharacterByTeam<T>(Character.Team team, string characterName = null) where T : Character {
+        List<T> matchingCharacters = new();
+
+        foreach (Character character in participants) {
+            if (character is T && character.currentTeam == team) {
+                T typedCharacter = (T)character;
+                if (string.IsNullOrEmpty(characterName) || character.gameObject.name == characterName) 
+                    return typedCharacter; //   return the exact character
+                matchingCharacters.Add(typedCharacter);
+            } }
+        if (matchingCharacters.Count > 0)
+            return matchingCharacters[Random.Range(0, matchingCharacters.Count)]; //return random character if specified
+
+        return null; // return null if nothing
+    }
+    
+    
     public int currentTurnIndex = 0; //Who's turn it is 
     public int turnCounter = 0; //Honkai star rail rules. This only increments once everyone got a turn
     public int skillPoints = 3;
@@ -60,11 +108,13 @@ public class BattleManager : MonoBehaviour {
 
         DebugPrintBattleStatus();
         battleStats.setText(participants[currentTurnIndex]);
+        
         //If the turn has finished
         if (!participants[currentTurnIndex].StartTurn(skillPoints)) {
             changer.setSkillPoints(skillPoints);
             currentTurnIndex++;
         }
+        
 
         //If the turn index has gone through every participant, start from the beginning
         if (currentTurnIndex > participants.Count - 1) {
@@ -86,7 +136,7 @@ public class BattleManager : MonoBehaviour {
 
         //Check if players are alive
         for (int i = 0; i < participants.Count; i++) {
-            if (participants[i].currentTeam == Character.Team.FRIEND && participants[i].isDead == false) {
+            if (!GetAdrielCharacter().isDead || !GetDianaCharacter().isDead || !GetMichaelCharacter().isDead) {
                 playerAlive = true;
                 break;
             }
@@ -94,7 +144,7 @@ public class BattleManager : MonoBehaviour {
 
         //Check if enemies are alive
         for (int i = 0; i < participants.Count; i++) {
-            if (participants[i].currentTeam == Character.Team.ENEMY && participants[i].isDead == false) {
+            if (!GetOtherCharacter<Character_DrSottLeaver>().hasLeft) {
                 enemiesAlive = true;
                 break;
             }

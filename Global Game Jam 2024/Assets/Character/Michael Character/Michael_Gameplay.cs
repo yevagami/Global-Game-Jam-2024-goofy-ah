@@ -23,14 +23,18 @@ public class MichaelPassive : Passive {
 
 
 public class MichaelSkill : Skill {
+    public BattleManager bm;
     public Character_Michael Michael;
-    public Character other;
-
+    //public Character_DrSottLeaver other;
+    public Character enemy;
+    
     private void Awake() {
-        Michael = GetComponent<Character_Michael>();
-        if (Michael == null)
-        {
-            Debug.LogError("No Michael Reference in Michael Gameplay");
+        bm = GetComponentInParent<Character_Michael>().battleManager;
+        Michael = bm.GetMichaelCharacter();
+        //other = bm.GetOtherCharacter<Character_DrSottLeaver>();
+        enemy = bm.GetCharacterByTeam<Character>(Character.Team.ENEMY);
+        if (Michael == null || enemy == null) {
+            Debug.LogError("No References in Michael Skill Gameplay");
         }
     }
     
@@ -51,15 +55,15 @@ public class MichaelSkill : Skill {
                 else { }
                 break;
         } }
-
-
+    
     public override void ActivateSkill() {
-        other.TakeDamage(Michael.currentAttack);
+        useVoiceline();
+        enemy.TakeDamage(Michael.GetCurrentAttack());
         if (Michael.canFollowUp == true) {
             System.Random random = new();
             int randomVal = random.Next(2);
             bool result = (randomVal == 1);
-            if (result == true) other.TakeDamage(Michael.currentAttack);
+            if (result == true) enemy.TakeDamage(Michael.GetCurrentAttack());
         }
     }
 }

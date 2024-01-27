@@ -11,11 +11,9 @@ using Random = UnityEngine.Random;
 public class SottPassive : Passive {
     public Character_DrSottLeaver DrSottLeaver;
 
-    private void Awake()
-    {
+    private void Awake() {
         DrSottLeaver = GetComponent<Character_DrSottLeaver>();
-        if (DrSottLeaver == null)
-        {
+        if (DrSottLeaver == null) {
             Debug.LogError("No Sott in DrScott Gameplay");
         }
     }
@@ -79,9 +77,9 @@ public class DrSottLeaverAttack : Skill {
     public override void ActivateSkill() {
         useVoiceline();
 
-        adriel.TakeDamage(DrSottLeaver.currentAttack);
-        diana.TakeDamage(DrSottLeaver.currentAttack);
-        michael.TakeDamage(DrSottLeaver.currentAttack);
+        adriel.TakeDamage(DrSottLeaver.GetCurrentAttack());
+        diana.TakeDamage(DrSottLeaver.GetCurrentAttack());
+        michael.TakeDamage(DrSottLeaver.GetCurrentAttack());
     }
 }
 
@@ -90,15 +88,17 @@ public class DrSottLeaverAttack : Skill {
 ///     Ultimate Ability
 /// </summary>
 public class DrSottLeaverUltimate : Ultimate {
+    public BattleManager bm;
     public Character_DrSottLeaver DrSottLeaver;
 
-    private void Awake()
-    {
-        DrSottLeaver = GetComponent<Character_DrSottLeaver>();
-        if (DrSottLeaver == null)
-        {
-            Debug.LogError("No Sott in DrScott Gameplay");
+    private void Awake() {
+        bm = GetComponentInParent<Character_DrSottLeaver>().battleManager;
+        if (bm == null) {
+            Debug.LogError("No BATTLe MANAGER in DrScott Gameplay");
+            return;
         }
+        DrSottLeaver = bm.GetOtherCharacter<Character_DrSottLeaver>();
+        if (DrSottLeaver == null) Debug.LogError("No Sott in DrScott Gameplay");
     }
     
     private void useVoiceline() {
@@ -113,12 +113,29 @@ public class DrSottLeaverUltimate : Ultimate {
         }
     }
 
-    //  "Sets to Public"
+    //  "Sets to Public" (makes us attack eachother)
     public override void UseUltimate() {
         useVoiceline();
-
-
         
-        //  LOGIC HERE
+        bm.GetDianaCharacter().currentTeam = Character.Team.ENEMY;
+        bm.GetMichaelCharacter().currentTeam = Character.Team.ENEMY;
+        bm.GetAdrielCharacter().currentTeam = Character.Team.ENEMY;
+
+        //  idk if this works, coroutines are goofy no ahh
+        StartCoroutine(RevertTeamsAfterDelay());
     }
+    
+    private IEnumerator RevertTeamsAfterDelay() {
+        int initialTurnIndex = bm.currentTurnIndex;
+
+        while (bm.currentTurnIndex == initialTurnIndex) {
+            yield return null; 
+        }
+        //  revert back
+        bm.GetDianaCharacter().currentTeam = Character.Team.FRIEND;
+        bm.GetMichaelCharacter().currentTeam = Character.Team.FRIEND;
+        bm.GetAdrielCharacter().currentTeam = Character.Team.FRIEND;
+    }
+    
+    
 }

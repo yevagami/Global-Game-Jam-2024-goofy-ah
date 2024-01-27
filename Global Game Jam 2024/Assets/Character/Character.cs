@@ -24,31 +24,38 @@ public abstract class Character : MonoBehaviour {
     public  BattleManager battleManager;
     public void SetBattleManager(BattleManager bm) { battleManager = bm; } 
     public bool isDead = false;
-    public bool canChooseTarget = true; // will be used with dr sott's publicness
-
     //Which team does this character belong to
     public enum Team {
         FRIEND,
         ENEMY
-    };
-
-    public Team currentTeam;
+    }; public Team currentTeam;
+    
     //public for now (maybe change later?)
     public float currentHealth;
+    public float currentEnergy = 20.0f;
+    public float maxEnergy = 100.0f;
+    public float energyPerTurn = 20.0f;
+    public void Heal(float health) { if (currentHealth + health >= baseHealth)  currentHealth += health; }
     protected float baseHealth = 100.0f;
     public float currentDefense;
     protected float baseDefense = 20.0f;
     public float currentAttack;
+    public float GetCurrentAttack() {
+        var attack = currentAttack;
+        if (isBuffed) attack *= 1.5f;
+        if (isAltered) attack *= 1.25f;
+        if (isDepressed) attack /= (attack / 5);
+        return attack; }
     protected float baseAttack = 20.0f;
     
     //array for debuffs
-    public bool isSad, isDepressed, isTaunting, isDoubting;
+    public bool isSad, isDepressed, isTaunting;
     public StatusEffect[] statussies;
     public bool canFollowUp;
     public bool isBuffed, isAltered;
 
     //names for our characters
-    public string name;
+    public new string name;
     //  sound effects
     protected Dictionary<string, AudioClip> characterSoundEffects;
     protected AudioSource audioSource;
@@ -60,9 +67,7 @@ public abstract class Character : MonoBehaviour {
         
         characterSoundEffects = new Dictionary<string, AudioClip>();
         InitiateSoundEffects();
-        
     }
-
 
     //  initiate all character sfx to the character sfx dictionary
     protected abstract void InitiateSoundEffects();
@@ -77,11 +82,12 @@ public abstract class Character : MonoBehaviour {
                 Debug.LogWarning("audioSource component not attached"); }
         } else {
             Debug.LogWarning("Sound label '{soundLabel}' not in dictionary"); }
+        
     }
     
     abstract public bool StartTurn(int currentSkillPointCount);
 
-    public void TakeDamage(float recievedDamage) {
+    public virtual void TakeDamage(float recievedDamage) {
         float damageTaken = 0;
         damageTaken = recievedDamage * (1 - (currentDefense / 100.0f));
         if ((currentHealth -= damageTaken) < 0) {
@@ -91,5 +97,14 @@ public abstract class Character : MonoBehaviour {
         }
     }
 
-    public abstract void Update();
+    public virtual void Update() {
+        const double TOLERANCE = 5.0;
+        if (Math.Abs(currentEnergy - maxEnergy) > TOLERANCE) {
+            if (currentEnergy + energyPerTurn > maxEnergy)
+                currentEnergy = maxEnergy;
+            
+            
+            currentEnergy += energyPerTurn;
+        }
+    }
 }

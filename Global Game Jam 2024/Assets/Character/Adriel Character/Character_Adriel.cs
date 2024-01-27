@@ -18,10 +18,6 @@ public class Character_Adriel : Character
 
         return true;
     }
-    public override void Update()
-    {
-        return;
-    }
 
     protected override void InitiateSoundEffects()
     {

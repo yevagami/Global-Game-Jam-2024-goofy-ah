@@ -3,19 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DianaPassive : Passive{
-    public Character Diana;
-    public Character Adriel;
-    public Character Michael;
+public class DianaPassive : Passive {
+    public BattleManager bm;
+    public Character_Diana Diana;
+    public Character_Adriel Adriel;
+    public Character_Michael Michael;
     float healingAmmount = 20.0f;
 
-    private void Awake()
-    {
-        Diana = GetComponent<Character_Diana>();
-        if (Diana == null)
-        {
-            Debug.LogError("No diana ref in Diana Gameplay");
+    private void Awake() {
+        bm = GetComponentInParent<Character_Diana>().battleManager;
+        
+        if (bm == null) {
+            Debug.LogError("no bm ref snatched from component parent"); return;
         }
+        Diana = bm.GetDianaCharacter();
+        Michael = bm.GetMichaelCharacter();
+        Adriel = bm.GetAdrielCharacter();
+        if (Diana == null || Adriel == null || Michael == null) Debug.LogError("No refs in Diana Skill Gameplay");
     }
 
     public override void ActivatePassive()
@@ -34,45 +38,53 @@ public class DianaPassive : Passive{
 
 }
 
-public class DianaSkill : Skill
-{
+public class DianaSkill : Skill {
+    public BattleManager bm;
     public Character_Diana Diana;
     public Character_Michael Michael;
-    public Character_Michael Adriel;
-
-    private void Awake()
-    {
-        Diana = GetComponent<Character_Diana>();
-        if (Diana == null)
-        {
-            Debug.LogError("No diana ref in Diana Gameplay");
+    public Character_Adriel Adriel;
+    public Character other;
+    
+    private void Awake() {
+        bm = GetComponentInParent<Character_Diana>().battleManager;
+        
+        if (bm == null) {
+            Debug.LogError("no bm ref snatched from component parent"); return;
         }
+        Diana = bm.GetDianaCharacter();
+        Michael = bm.GetMichaelCharacter();
+        Adriel = bm.GetAdrielCharacter();
+        other = bm.GetCharacterByTeam<Character>(Character.Team.ENEMY);
+        if (Diana == null || Adriel == null || Michael == null) Debug.LogError("No refs in Diana Skill Gameplay");
     }
     
-    public override void ActivateSkill()
-    {
-        //The player needs to choose the other character. Not here 
+    public override void ActivateSkill() {
+        var damageDealt = Diana.currentAttack / 1.25f;
+        other.TakeDamage(damageDealt);
+        Diana.Heal(damageDealt);        
     }
 }
 
 
-public class DianaUltimate : Ultimate
-{
+public class DianaUltimate : Ultimate {
+    public BattleManager bm;
     public Character_Diana Diana;
     public Character_Michael Michael;
     public Character_Adriel Adriel;
 
-    private void Awake()
-    {
-        Diana = GetComponent<Character_Diana>();
-        if (Diana == null)
-        {
-            Debug.LogError("No diana ref in Diana Gameplay");
+    private void Awake() {
+        bm = GetComponentInParent<Character_Diana>().battleManager;
+        
+        if (bm == null) {
+            Debug.LogError("no bm ref snatched from component parent"); return;
         }
+        Diana = bm.GetDianaCharacter();
+        Michael = bm.GetMichaelCharacter();
+        Adriel = bm.GetAdrielCharacter();
+        if (Diana == null || Adriel == null || Michael == null) Debug.LogError("No refs in Diana Skill Gameplay");
     }
     
-    public override void UseUltimate()
-    {
+    public override void UseUltimate() {
         Michael.isBuffed = true;
         Adriel.isBuffed = true;
         Diana.TakeDamage(45.0f);

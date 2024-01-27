@@ -31,9 +31,17 @@ public class Character_DrSottLeaver : Character {
     public override bool StartTurn(int currentSkillPointCount) {
         throw new System.NotImplementedException();
     }
-
-    public override void Update() {
-        throw new System.NotImplementedException();
+    
+    public override void TakeDamage(float recievedDamage)
+    {
+        float damageTaken = 0;
+        damageTaken = recievedDamage * (1 - (currentDefense / 100.0f));
+        if ((currentHealth -= damageTaken) < 0)
+        {
+            currentHealth -= damageTaken;
+        } else {
+            isDead = true;
+        }
     }
 
 
