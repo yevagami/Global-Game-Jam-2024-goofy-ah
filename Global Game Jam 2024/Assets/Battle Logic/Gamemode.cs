@@ -8,10 +8,7 @@ public class Gamemode : MonoBehaviour {
 
 public class TurnManager : MonoBehaviour {
     //  create a new list to hold all player characters
-    public List<Character> playerCharacters = new();
-
-    //  holds the reference to the current enemyCharacter on field
-    public Character enemyCharacter;
+    public List<Character> participants = new();
 
     public int skillPoints;
 
@@ -46,7 +43,7 @@ public class TurnManager : MonoBehaviour {
         }
 
         //  have all players taken their turn?
-        if (currentCharacterIndex >= playerCharacters.Count) {
+        if (currentCharacterIndex >= participants.Count) {
             //  reset the index
             currentCharacterIndex = 0;
             //  enemy takes their turn
@@ -62,7 +59,7 @@ public class TurnManager : MonoBehaviour {
     }
 
     private void PlayerTurn() {
-        Character currentPlayer = playerCharacters[currentCharacterIndex];
+        Character currentPlayer = participants[currentCharacterIndex];
         skipCurrentTurn = ShouldSkippidi(currentPlayer);
 
         if (!skipCurrentTurn) {
@@ -75,6 +72,8 @@ public class TurnManager : MonoBehaviour {
     private void EnemyTurn() {
         //  enemy always has a skillpoint, so i hard set it to 1.
         // he'll do his turns differently (rng to skip or not)
-        enemyCharacter.StartTurn(1); //  same with player, unimplemented
+        participants.StartTurn(1); //  same with player, unimplemented
     }
+
+
 }

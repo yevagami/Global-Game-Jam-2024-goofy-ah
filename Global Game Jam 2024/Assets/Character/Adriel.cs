@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleManager : MonoBehaviour {
-    int currentTurnIndex = 0;
-    List<Character> participants = new List<Character>();
+public class NewBehaviourScript : MonoBehaviour
+{
     // Start is called before the first frame update
     void Start()
     {
