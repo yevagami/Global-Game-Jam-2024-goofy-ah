@@ -448,12 +448,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfTheCurrentChar: {fileID: 1583337780}
-  nameOfCurrentBoss: {fileID: 266191930}
-  hpOfTheChar: {fileID: 154563356}
-  defOFTheChar: {fileID: 1960161508}
-  atkOfTheChar: {fileID: 121819997}
-  turns: {fileID: 0}
-  skillPoints: {fileID: 0}
+  currentHP: {fileID: 154563356}
+  currentDef: {fileID: 1960161508}
+  currentAttack: {fileID: 121819997}
+  currentSkillPoints: {fileID: 1938026989}
+  currentTurn: {fileID: 1831702197}
+  currentBossName: {fileID: 266191930}
 --- !u!1 &154563354
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,12 +602,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfTheCurrentChar: {fileID: 1583337780}
-  nameOfCurrentBoss: {fileID: 266191930}
-  hpOfTheChar: {fileID: 154563356}
-  defOFTheChar: {fileID: 1960161508}
-  atkOfTheChar: {fileID: 121819997}
-  turns: {fileID: 0}
-  skillPoints: {fileID: 0}
+  currentHP: {fileID: 154563356}
+  currentDef: {fileID: 1960161508}
+  currentAttack: {fileID: 121819997}
+  currentSkillPoints: {fileID: 1938026989}
+  currentTurn: {fileID: 1831702197}
+  currentBossName: {fileID: 266191930}
 --- !u!1 &266191928
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,12 +756,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfTheCurrentChar: {fileID: 1583337780}
-  nameOfCurrentBoss: {fileID: 266191930}
-  hpOfTheChar: {fileID: 154563356}
-  defOFTheChar: {fileID: 1960161508}
-  atkOfTheChar: {fileID: 121819997}
-  turns: {fileID: 0}
-  skillPoints: {fileID: 0}
+  currentHP: {fileID: 154563356}
+  currentDef: {fileID: 1960161508}
+  currentAttack: {fileID: 121819997}
+  currentSkillPoints: {fileID: 1938026989}
+  currentTurn: {fileID: 1831702197}
+  currentBossName: {fileID: 266191930}
 --- !u!1 &293456968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,12 +2588,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfTheCurrentChar: {fileID: 1583337780}
-  nameOfCurrentBoss: {fileID: 266191930}
-  hpOfTheChar: {fileID: 154563356}
-  defOFTheChar: {fileID: 1960161508}
-  atkOfTheChar: {fileID: 121819997}
-  turns: {fileID: 0}
-  skillPoints: {fileID: 0}
+  currentHP: {fileID: 154563356}
+  currentDef: {fileID: 1960161508}
+  currentAttack: {fileID: 121819997}
+  currentSkillPoints: {fileID: 1938026989}
+  currentTurn: {fileID: 1831702197}
+  currentBossName: {fileID: 266191930}
 --- !u!114 &1583337780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3145,6 +3145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3687760343e397145b67866fe42c6afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changer: {fileID: 0}
+  manager: {fileID: 0}
   battleStats: {fileID: 0}
   characterObjects:
   - {fileID: 689978352}
@@ -3641,12 +3643,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfTheCurrentChar: {fileID: 1583337780}
-  nameOfCurrentBoss: {fileID: 266191930}
-  hpOfTheChar: {fileID: 154563356}
-  defOFTheChar: {fileID: 1960161508}
-  atkOfTheChar: {fileID: 121819997}
-  turns: {fileID: 0}
-  skillPoints: {fileID: 0}
+  currentHP: {fileID: 0}
+  currentDef: {fileID: 0}
+  currentAttack: {fileID: 0}
+  currentSkillPoints: {fileID: 0}
+  currentTurn: {fileID: 0}
+  currentBossName: {fileID: 0}
 --- !u!114 &1938026989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3999,12 +4001,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfTheCurrentChar: {fileID: 1583337780}
-  nameOfCurrentBoss: {fileID: 266191930}
-  hpOfTheChar: {fileID: 154563356}
-  defOFTheChar: {fileID: 1960161508}
-  atkOfTheChar: {fileID: 121819997}
-  turns: {fileID: 0}
-  skillPoints: {fileID: 0}
+  currentHP: {fileID: 154563356}
+  currentDef: {fileID: 1960161508}
+  currentAttack: {fileID: 121819997}
+  currentSkillPoints: {fileID: 1938026989}
+  currentTurn: {fileID: 1831702197}
+  currentBossName: {fileID: 266191930}
 --- !u!1 &2001956617
 GameObject:
   m_ObjectHideFlags: 0

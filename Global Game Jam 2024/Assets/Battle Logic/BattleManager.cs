@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour {
+    public TextChange changer;
     [SerializeField] GameManager manager;
 
     public TextChange battleStats;
@@ -61,6 +62,7 @@ public class BattleManager : MonoBehaviour {
         battleStats.setText(participants[currentTurnIndex]);
         //If the turn has finished
         if (!participants[currentTurnIndex].StartTurn(skillPoints)) {
+            changer.setSkillPoints(skillPoints);
             currentTurnIndex++;
         }
 
@@ -68,6 +70,7 @@ public class BattleManager : MonoBehaviour {
         if (currentTurnIndex > participants.Count - 1) {
             currentTurnIndex = 0;
             turnCounter++;
+            changer.setCurrentTurn(turnCounter);
         }
 
         return true;
