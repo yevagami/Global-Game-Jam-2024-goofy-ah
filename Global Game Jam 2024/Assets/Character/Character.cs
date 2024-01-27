@@ -4,21 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public abstract class Character : MonoBehaviour {
-    //public for now (maybe change later?)
-    public float health = 100.0f;
-    public float defense = 20.0f;
-
-    public float attackDMG = 15.0f;
-public abstract class StatusEffect : MonoBehaviour {
+public abstract class StatusEffect : MonoBehaviour
+{
     abstract public void ApplyStatus();
 }
 
-public class StatusDepressed : StatusEffect {
-    public override void ApplyStatus() {
+public class StatusDepressed : StatusEffect
+{
+    public override void ApplyStatus()
+    {
         Debug.Log("YOu are depressed");
     }
 }
+
 
 public abstract class Character : MonoBehaviour
 {
@@ -27,7 +25,12 @@ public abstract class Character : MonoBehaviour
     public bool isDead = false;
 
     //Which team does this character belong to
-    public enum Team { FRIEND, ENEMY };
+    public enum Team
+    {
+        FRIEND,
+        ENEMY
+    };
+
     public Team currentTeam;
 
     //public for now (maybe change later?)
@@ -51,25 +54,32 @@ public abstract class Character : MonoBehaviour
     protected Dictionary<string, AudioClip> characterSoundEffects;
     protected AudioSource audioSource;
 
-    private void Awake() {
+    private void Awake()
+    {
         audioSource = GetComponent<AudioSource>();
 
         characterSoundEffects = new();
         InitiateSoundEffects();
     }
+
+
     //  initiate all character sfx to the character sfx dictionary
     protected abstract void InitiateSoundEffects();
 
     //  play the sound effect at the sound label
-    protected void PlaySound(string soundLabel) {
-        if (characterSoundEffects.ContainsKey(soundLabel)) {
+    protected void PlaySound(string soundLabel)
+    {
+        if (characterSoundEffects.ContainsKey(soundLabel))
+        {
             audioSource.clip = characterSoundEffects[soundLabel];
             audioSource.Play();
-        } else {
-          Debug.LogWarning("Sound label '{soundLabel}' not in dictionary");  
+        }
+        else
+        {
+            Debug.LogWarning("Sound label '{soundLabel}' not in dictionary");
         }
     }
-    
+
     abstract public bool StartTurn(int currentSkillPointCount);
 
     public void TakeDamage(float recievedDamage)
