@@ -19,9 +19,9 @@ public class AdrielUltimate : Ultimate{
 }
 public class DianaUltimate : Ultimate
 {
-    public Character Diana;
-    public Character Michael;
-    public Character Adriel;
+    public Character_Diana Diana;
+    public Character_Michael Michael;
+    public Character_Adriel Adriel;
     public override void UseUltimate()
     {
         Michael.isBuffed = true;
@@ -32,11 +32,11 @@ public class DianaUltimate : Ultimate
 }
 public class MichaelUltimate : Ultimate
 {
-    public Character Michael;
+    public Character_Michael Michael;
     float mORE = 50;
     public override void UseUltimate()
     {
-        Michael.attack += mORE;
+        Michael.currentAttack += mORE;
         Michael.isAltered = true;
     }
 }

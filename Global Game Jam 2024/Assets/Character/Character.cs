@@ -21,7 +21,7 @@ public class StatusDepressed : StatusEffect
 
 public abstract class Character : MonoBehaviour {
     //Reference to the gamemode/battle manager
-    [SerializeField] private  BattleManager battleManager;
+    public  BattleManager battleManager;
     public void SetBattleManager(BattleManager bm) { battleManager = bm; } 
     public bool isDead = false;
 
@@ -33,10 +33,13 @@ public abstract class Character : MonoBehaviour {
 
     public Team currentTeam;
     //public for now (maybe change later?)
-    public float health = 100.0f;
-    public float defense = 20.0f;
-    public float attack = 15.0f;
-
+    public float currentHealth;
+    protected float baseHealth = 100.0f;
+    public float currentDefense;
+    protected float baseDefense = 20.0f;
+    public float currentAttack;
+    protected float baseAttack = 20.0f;
+    
     //array for debuffs
     public bool isSad, isDepressed, isTaunting, isDoubting;
     public StatusEffect[] statussies;
@@ -47,13 +50,12 @@ public abstract class Character : MonoBehaviour {
     public string name;
     //  sound effects
     protected Dictionary<string, AudioClip> characterSoundEffects;
-    public AudioSource audioSource;
+    protected AudioSource audioSource;
 
-    private void Awake() {
+    private void Start() {
         if (audioSource == null) {
             audioSource = gameObject.AddComponent<AudioSource>();
-        } audioSource = GetComponent<AudioSource>();
-
+        } //audioSource = GetComponent<AudioSource>();
         
         characterSoundEffects = new Dictionary<string, AudioClip>();
         InitiateSoundEffects();
@@ -66,27 +68,26 @@ public abstract class Character : MonoBehaviour {
 
     //  play the sound effect at the sound label
     protected void PlaySound(string soundLabel) {
-        if (characterSoundEffects.ContainsKey(soundLabel)) {
+        if (characterSoundEffects.TryGetValue(soundLabel, out var clip)) {
             if (audioSource != null) {
-                audioSource.clip = characterSoundEffects[soundLabel];
+                audioSource.clip = clip;
                 audioSource.Play();    
             } else {
-                Debug.Log("audioSource component not attached");
-            }
-            
-        }
-        else
-        {
-            Debug.LogWarning("Sound label '{soundLabel}' not in dictionary");
-        }
+                Debug.LogWarning("audioSource component not attached"); }
+        } else {
+            Debug.LogWarning("Sound label '{soundLabel}' not in dictionary"); }
     }
     
     abstract public bool StartTurn(int currentSkillPointCount);
 
     public void TakeDamage(float recievedDamage) {
         float damageTaken = 0;
-        damageTaken = recievedDamage * (1 - (defense / 100.0f));
-        health -= damageTaken;
+        damageTaken = recievedDamage * (1 - (currentDefense / 100.0f));
+        if ((currentHealth -= damageTaken) < 0) {
+            currentHealth -= damageTaken;
+        } else {
+            isDead = true;
+        }
     }
 
     abstract public void Update();

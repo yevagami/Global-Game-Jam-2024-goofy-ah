@@ -14,11 +14,11 @@ public class AdrielPassive : Passive {
     {
         if (!other.isSad)
         {
-            other.defense = 0;
+            other.currentDefense = 0;
         }
         else if (other.isSad && !other.isDepressed)
         {
-            other.defense = -1;
+            other.currentDefense= -1;
         }
         else {
             Debug.Log("Already depressed");
@@ -32,15 +32,15 @@ public class DianaPassive : Passive{
     float healingAmmount = 20.0f;
     public override void ActivatePassive()
     {
-        if (Michael.health < Adriel.health && Michael.health < Diana.health)
+        if (Michael.currentHealth < Adriel.currentHealth && Michael.currentHealth < Diana.currentHealth)
         {
-            Michael.health += healingAmmount;
+            Michael.currentHealth += healingAmmount;
         }
-        else if (Adriel.health < Michael.health && Adriel.health < Diana.health) {
-            Adriel.health += healingAmmount;
+        else if (Adriel.currentHealth < Michael.currentHealth  && Adriel.currentHealth < Diana.currentHealth) {
+            Adriel.currentHealth += healingAmmount;
         }
         else{
-            Diana.health += healingAmmount;
+            Diana.currentHealth += healingAmmount;
         }
     }
 

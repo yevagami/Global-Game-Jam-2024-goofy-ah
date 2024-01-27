@@ -25,6 +25,7 @@ public class Character_Test : Character
     protected override void InitiateSoundEffects() {
         characterSoundEffects.Add("kiriko", Resources.Load<AudioClip>("Sounds/my bike"));
         characterSoundEffects.Add("gyat", Resources.Load<AudioClip>("Sounds/gyat"));
+        
     }
 
     //
