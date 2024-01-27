@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Character_Test : Character
 {
+    bool endTurn = false;
     //Override some of the values
     public override bool StartTurn(int currentSkillPointCount) {
-        Debug.Log("Character_Test's Turn");
-        if(Input.GetKeyDown(KeyCode.A)) {
+        if(Input.GetKeyUp(KeyCode.A)) {
             Debug.Log("Character_Test's Turn Has Ended");
             return false;
         }
@@ -16,7 +16,11 @@ public class Character_Test : Character
     }
 
     public override void Update() {
-        throw new System.NotImplementedException();
+        return;
+    }
+
+    protected override void InitiateSoundEffects() {
+        return;
     }
 
     //

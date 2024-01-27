@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7561862812532675864
+--- !u!1 &4261317916232129472
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8971692429188222442}
-  - component: {fileID: 8581898336870892441}
+  - component: {fileID: 4299956631157884730}
+  - component: {fileID: 4297563883260089996}
   m_Layer: 0
-  m_Name: Test
+  m_Name: EnemyTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8971692429188222442
+--- !u!4 &4299956631157884730
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7561862812532675864}
+  m_GameObject: {fileID: 4261317916232129472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,21 +32,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8581898336870892441
+--- !u!114 &4297563883260089996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7561862812532675864}
+  m_GameObject: {fileID: 4261317916232129472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ff8fdf94151fb5419e91b70e003d2c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b3c03a5d363d5040a9d22c1ee4067e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
   currentTeam: 0
-  health: 200
+  health: 100
   defense: 20
   attack: 15
   isSad: 0
