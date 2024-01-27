@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour{
 
     enum GameState { Overworld, Battle}
     GameState current = GameState.Overworld;
-    BattleManager battleManager;
+    [SerializeField] BattleManager battleManager;
 
     private void Awake() {
         DontDestroyOnLoad(gameObject);
@@ -18,13 +18,11 @@ public class GameManager : MonoBehaviour{
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        switch (current) {
-            case GameState.Overworld:
-                break;
-            case GameState.Battle:
-                break;
-        }
+    void Update(){
+
+    }
+
+    void OpenBattleScreen(GameObject opponent) {
+
     }
 }
