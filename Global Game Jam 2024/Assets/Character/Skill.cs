@@ -27,20 +27,21 @@ public class DianaSkill : Skill
         //The player needs to choose the other character. Not here 
     }
 }
-public class MichealSkill : Skill
+public class MichaelSkill : Skill
 {
     public Character Michael;
     public Character other;
+    float michaelsAttack = 15.0f;
 
     public override void ActivateSkill()
     {
-        other.TakeDamage();
+        other.TakeDamage(michaelsAttack);
         if (Michael.canFollowUp == true) {
             System.Random random = new();
             int randomVal = random.Next(2);
             bool result = (randomVal == 1);
             if (result == true) {
-                other.TakeDamage();
+                other.TakeDamage(michaelsAttack);
             }
         }
     }

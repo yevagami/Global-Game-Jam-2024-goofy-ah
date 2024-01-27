@@ -26,8 +26,8 @@ public class DianaUltimate : Ultimate
     {
         Michael.isBuffed = true;
         Adriel.isBuffed = true;
-        Diana.TakeDamage();
-        throw new System.NotImplementedException();
+        Diana.TakeDamage(45.0f);
+       
     }
 }
 public class MichaelUltimate : Ultimate

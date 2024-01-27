@@ -19,26 +19,28 @@ public abstract class Character : MonoBehaviour
     
     //actions: attack, heal, 
     abstract public void StartTurn();
-    abstract public void TakeDamage();
+    public void TakeDamage(float recievedDamage) {
+        float damageTaken = 0;
+        damageTaken = recievedDamage * (1 - (defense / 100.0f));
+        health -= damageTaken;
+    }
     abstract public void DealDamage();
     abstract public void Update();
 
+}
 
-    //  returns the character chosen/acted upon. 
-    //  method takes the character's method to use (returns a bool), and a list of characters to use it on (can be 1, or many)
-    Character ChooseTarget(Func<Character, bool> characterMethod, List<Character> characters) {
-        //  for all Characters inside the array...
-        foreach (Character character in characters) {
-            //  if the character method can be called on that character...
-            if (characterMethod(character)) {
-                //  return that character (might leave if void)
-                return character;
-            }
-        }
-        
-        //  if nothing targettable, return void.
-        return null;
-        
-        
+public class CharacterAdriel : Character {
+    public override void StartTurn()
+    {
+        throw new NotImplementedException();
+    }
+    public override void DealDamage()
+    {
+        throw new NotImplementedException();
+    }
+    public override void Update()
+    {
+
+
     }
 }
