@@ -56,14 +56,13 @@ public class MichaelPassive : Passive
 
 public class SottPassive : Passive {
     public Character_DrSottLeaver Sott;
-    
-    public override void ActivatePassive() {
-        if (!(Sott.currentLeaveChance < 80.0f)) return;
-        
-        Sott.currentLeaveChance += Sott.currentLeaveIncrementPerTurn;
-        
-        if (Random.Range(0.0f, 100.0f) < Sott.currentLeaveChance) Debug.Log("Sott has left.");
-        
 
+    public override void ActivatePassive() {
+        if ((Sott.currentLeaveChance < 80.0f)) Sott.currentLeaveChance += Sott.currentLeaveIncrementPerTurn;
+        
+        if (Random.Range(0.0f, 100.0f) < Sott.currentLeaveChance) {
+            Debug.Log("Sott has left.");
+        }
     }
+
 }
