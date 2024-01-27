@@ -41,15 +41,9 @@ public abstract class Character : MonoBehaviour
 
     //array for debuffs
     public bool isSad, isDepressed, isTaunting, isTaunted, isDoubting;
-
     public StatusEffect[] statussies;
     public bool canFollowUp;
-
     public bool isBuffed, isAltered;
-
-    //passive, attack, ultimate
-    //actions: attack, heal, 
-
 
     //  sound effects
     protected Dictionary<string, AudioClip> characterSoundEffects;
@@ -80,7 +74,7 @@ public abstract class Character : MonoBehaviour
             Debug.LogWarning("Sound label '{soundLabel}' not in dictionary");
         }
     }
-
+    
     abstract public bool StartTurn(int currentSkillPointCount);
 
     public void TakeDamage(float recievedDamage)
