@@ -146,7 +146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1698054548
 Transform:
   m_ObjectHideFlags: 0
@@ -288,6 +288,10 @@ PrefabInstance:
       value: EnemyTest
       objectReference: {fileID: 0}
     - target: {fileID: 4297563883260089996, guid: 93182776802e97a4bb451aa3b64ab129, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297563883260089996, guid: 93182776802e97a4bb451aa3b64ab129, type: 3}
       propertyPath: currentTeam
       value: 1
       objectReference: {fileID: 0}
@@ -347,6 +351,10 @@ PrefabInstance:
     - target: {fileID: 7561862812532675864, guid: a9824feaf1b6770408e78e6376d2dff6, type: 3}
       propertyPath: m_Name
       value: CharacterTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581898336870892441, guid: a9824feaf1b6770408e78e6376d2dff6, type: 3}
+      propertyPath: audioSource
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8971692429188222442, guid: a9824feaf1b6770408e78e6376d2dff6, type: 3}
       propertyPath: m_LocalPosition.x

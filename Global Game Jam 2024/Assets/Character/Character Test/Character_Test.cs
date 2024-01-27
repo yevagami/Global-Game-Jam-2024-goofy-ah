@@ -6,9 +6,12 @@ public class Character_Test : Character
 {
     bool endTurn = false;
     //Override some of the values
+    
+
     public override bool StartTurn(int currentSkillPointCount) {
         if(Input.GetKeyUp(KeyCode.A)) {
             Debug.Log("Character_Test's Turn Has Ended");
+            PlaySound("kiriko");
             return false;
         }
 
@@ -20,13 +23,15 @@ public class Character_Test : Character
     }
 
     protected override void InitiateSoundEffects() {
-        return;
+        characterSoundEffects.Add("kiriko", Resources.Load<AudioClip>("Sounds/my bike"));
+        characterSoundEffects.Add("gyat", Resources.Load<AudioClip>("Sounds/gyat"));
     }
 
     //
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+        if (audioSource == null) {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 }

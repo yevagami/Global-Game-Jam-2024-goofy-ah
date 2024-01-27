@@ -18,43 +18,43 @@ public class StatusDepressed : StatusEffect
 }
 
 
-public abstract class Character : MonoBehaviour
-{
+public abstract class Character : MonoBehaviour {
     //Reference to the gamemode/battle manager
-    BattleManager battleManager;
+    [SerializeField] private  BattleManager battleManager;
     public void SetBattleManager(BattleManager bm) { battleManager = bm; } 
     public bool isDead = false;
 
     //Which team does this character belong to
-    public enum Team
-    {
+    public enum Team {
         FRIEND,
         ENEMY
     };
 
     public Team currentTeam;
-
     //public for now (maybe change later?)
     public float health = 100.0f;
     public float defense = 20.0f;
     public float attack = 15.0f;
 
     //array for debuffs
-    public bool isSad, isDepressed, isTaunting, isTaunted, isDoubting;
+    public bool isSad, isDepressed, isTaunting, isDoubting;
     public StatusEffect[] statussies;
     public bool canFollowUp;
     public bool isBuffed, isAltered;
 
     //  sound effects
     protected Dictionary<string, AudioClip> characterSoundEffects;
-    protected AudioSource audioSource;
+    public AudioSource audioSource;
 
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
+    private void Awake() {
+        if (audioSource == null) {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        } audioSource = GetComponent<AudioSource>();
 
-        characterSoundEffects = new();
+        
+        characterSoundEffects = new Dictionary<string, AudioClip>();
         InitiateSoundEffects();
+        
     }
 
 
@@ -62,12 +62,15 @@ public abstract class Character : MonoBehaviour
     protected abstract void InitiateSoundEffects();
 
     //  play the sound effect at the sound label
-    protected void PlaySound(string soundLabel)
-    {
-        if (characterSoundEffects.ContainsKey(soundLabel))
-        {
-            audioSource.clip = characterSoundEffects[soundLabel];
-            audioSource.Play();
+    protected void PlaySound(string soundLabel) {
+        if (characterSoundEffects.ContainsKey(soundLabel)) {
+            if (audioSource != null) {
+                audioSource.clip = characterSoundEffects[soundLabel];
+                audioSource.Play();    
+            } else {
+                Debug.Log("audioSource component not attached");
+            }
+            
         }
         else
         {
@@ -77,32 +80,11 @@ public abstract class Character : MonoBehaviour
     
     abstract public bool StartTurn(int currentSkillPointCount);
 
-    public void TakeDamage(float recievedDamage)
-    {
+    public void TakeDamage(float recievedDamage) {
         float damageTaken = 0;
         damageTaken = recievedDamage * (1 - (defense / 100.0f));
         health -= damageTaken;
     }
 
     abstract public void Update();
-}
-
-public class CharacterAdriel : Character
-{
-    protected override void InitiateSoundEffects()
-    {
-        throw new NotImplementedException();
-    }
-
-    public override bool StartTurn(int currentSkillPointCount)
-    {
-        if (currentSkillPointCount != 0) return true;
-
-        Debug.Log("NO SKILLPOINTS! you whore.");
-        return false;
-    }
-
-    public override void Update()
-    {
-    }
 }

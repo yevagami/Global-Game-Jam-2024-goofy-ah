@@ -5,6 +5,8 @@ using UnityEngine;
 public class Character_Adriel : Character
 {
     bool endTurn = false;
+    
+
     public override bool StartTurn(int currentSkillPointCount)
     {
         if (Input.GetKeyUp(KeyCode.B))
@@ -22,7 +24,7 @@ public class Character_Adriel : Character
 
     protected override void InitiateSoundEffects()
     {
-        return;
+        
     }
 
     //

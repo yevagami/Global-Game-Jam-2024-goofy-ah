@@ -5,6 +5,8 @@ using UnityEngine;
 public class Character_Diana : Character
 {
     bool endTurn = false;
+
+    
     public override bool StartTurn(int currentSkillPointCount)
     {
         if (Input.GetKeyUp(KeyCode.D))
@@ -15,20 +17,15 @@ public class Character_Diana : Character
 
         return true;
     }
+
     public override void Update()
     {
         return;
     }
 
-    protected override void InitiateSoundEffects()
-    {
-        return;
-    }
-
-    //
-    // Start is called before the first frame update
-    void Start()
-    {
-
+    protected override void InitiateSoundEffects() {
+        characterSoundEffects.Add("Talent", Resources.Load<AudioClip>("Sounds/talentSoundDiana.ogg"));
+        characterSoundEffects.Add("Skill", Resources.Load<AudioClip>("Sounds/skillSoundDiana.ogg"));
+        characterSoundEffects.Add("Ultimate", Resources.Load<AudioClip>("Sounds/talentSoundDiana.ogg"));
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy_Test : Character
 {
+   
+
     public override bool StartTurn(int currentSkillPointCount) {
         int randomValue = Random.Range(0, 5);
         Debug.Log("===============");
