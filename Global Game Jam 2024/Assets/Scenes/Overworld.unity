@@ -7869,6 +7869,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfTheCurrentChar: {fileID: 2006653422}
+  currentHP: {fileID: 0}
+  currentDef: {fileID: 0}
+  currentAttack: {fileID: 0}
+  currentSkillPoints: {fileID: 0}
+  currentTurn: {fileID: 0}
+  currentBossName: {fileID: 0}
 --- !u!114 &2006653422
 MonoBehaviour:
   m_ObjectHideFlags: 0

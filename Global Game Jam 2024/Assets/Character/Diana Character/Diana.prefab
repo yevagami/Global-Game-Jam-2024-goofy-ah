@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5740648232147821747}
   - component: {fileID: 1815587287134485679}
+  - component: {fileID: 7192070319385449755}
   m_Layer: 0
   m_Name: Diana
   m_TagString: Untagged
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
   isDead: 0
+  canChooseTarget: 0
   currentTeam: 0
   currentHealth: 0
   currentDefense: 0
@@ -59,3 +61,18 @@ MonoBehaviour:
   isBuffed: 0
   isAltered: 0
   name: 
+--- !u!114 &7192070319385449755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778278573509560576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599556955a14b1a4a920d3ff3d915391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Diana: {fileID: 0}
+  Adriel: {fileID: 0}
+  Michael: {fileID: 0}
