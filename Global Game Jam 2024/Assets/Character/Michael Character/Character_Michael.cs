@@ -120,9 +120,6 @@ public class Character_Michael : Character {
         {
             PlaySound("meow~");
         }
-        
-        
-        base.Update();
     }
     protected override void InitiateSoundEffects() {
         

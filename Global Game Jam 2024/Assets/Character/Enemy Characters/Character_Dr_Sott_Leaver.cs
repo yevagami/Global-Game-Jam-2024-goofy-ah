@@ -16,7 +16,44 @@ public class Character_DrSottLeaver : Character {
     private float bossAttack = 30.0f;
     private float bossHP = 200.0f;
     
-    
+    public override void Update() {
+        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PlaySound("dont piss me off");
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            PlaySound("back to work");
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            PlaySound("picking up fish");
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            PlaySound("tangents");
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            PlaySound("butcher shop");
+        }
+        else if (Input.GetKeyDown(KeyCode.Y))
+        {
+            PlaySound("public variables...");
+        }
+        else if (Input.GetKeyDown(KeyCode.U))
+        {
+            PlaySound("public variables extended");
+        }
+        else if (Input.GetKeyDown(KeyCode.I))
+        {
+            PlaySound("get this done");
+        }
+        
+        //base.Update();
+        
+    }
     protected override void InitiateSoundEffects() {
         
         characterSoundEffects.Add("dont piss me off", Resources.Load<AudioClip>("Sounds/Dr Sott/dont piss me off"));
@@ -99,6 +136,7 @@ public class Character_DrSottLeaver : Character {
         currentAttack = bossAttack;
         currentHealth = bossHP;
         currentDefense = bossDefense;
+        InitiateSoundEffects();
     }
 
     public override void useSkill()

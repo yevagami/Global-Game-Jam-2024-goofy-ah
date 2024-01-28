@@ -121,7 +121,6 @@ public class Character_Diana : Character
             PlaySound("heyy");
         }
         
-        base.Update();
     }
 
     protected override void InitiateSoundEffects()

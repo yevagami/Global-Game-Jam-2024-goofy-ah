@@ -45,8 +45,6 @@ public class Character_Adriel : Character
         {
             PlaySound("shut up.");
         }
-
-        base.Update();
     }
     protected override void InitiateSoundEffects() {
         base.characterSoundEffects.Add("it is what it is...", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 1"));   

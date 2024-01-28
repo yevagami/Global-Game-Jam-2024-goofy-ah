@@ -95,17 +95,17 @@ public abstract class Character : MonoBehaviour {
             Debug.Log(name + " has died.");
         }
     }
-    
-    public virtual void Update() {
+
+    public abstract void Update(); /*{
         const double TOLERANCE = 5.0;
         if (Math.Abs(currentEnergy - maxEnergy) > TOLERANCE) {
             if (currentEnergy + energyPerTurn > maxEnergy)
                 currentEnergy = maxEnergy;
-            
-            
+
+
             currentEnergy += energyPerTurn;
         }
-    }
+    }*/
 
     abstract public void useSkill();
     abstract public void useUltimate();
