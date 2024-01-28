@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class TextChange : MonoBehaviour
 {
+    public BattleManager bm;
+
     public TextMeshProUGUI nameOfTheCurrentChar;
     //stats
     public TextMeshProUGUI currentHP;
@@ -22,12 +24,21 @@ public class TextChange : MonoBehaviour
 
 
     // Start is called before the first frame update
-    public void setText(Character character) { 
+    public void Awake() {
+        bm = GetComponentInParent<BattleManager>();
+    }
+    public void setText(Character character) {
+        Character currentChar = bm.GetParticipants()[bm.currentTurnIndex];
+        nameOfTheCurrentChar.text = currentChar.name.ToString();
+        currentHP.text = currentChar.currentHealth.ToString();
+        currentDef.text = currentChar.currentDefense.ToString();
+        currentAttack.text = currentChar.currentAttack.ToString();
+        currentBossName.text = bm.GetCharacterByTeam<Character>(Character.Team.ENEMY, "Dr. Sott Leaver (PH.D)").name.ToString();
 
-        nameOfTheCurrentChar.text = character.name;
-        currentHP.text = character.currentHealth.ToString();
-        currentDef.text = character.currentDefense.ToString();
-        currentBossName.text = character.name;
+        currentSkillPoints.text = bm.skillPoints.ToString();
+        currentTurn.text = bm.currentTurnIndex.ToString();
+
+      
         
     }
     public void setSkillPoints(int currnetSkillpoints) { 

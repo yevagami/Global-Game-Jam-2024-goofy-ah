@@ -164,4 +164,10 @@ public class BattleManager : MonoBehaviour {
         currentState = States.Start;
         participants.Clear();
     }
+
+    public Character GetCurrentParticipant() { 
+        if(currentTurnIndex == 0) return null;
+        if (currentTurnIndex > participants.Count) return null;
+        return participants[currentTurnIndex];
+    }
 }
