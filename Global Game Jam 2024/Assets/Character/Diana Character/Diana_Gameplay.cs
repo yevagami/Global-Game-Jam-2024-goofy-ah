@@ -9,7 +9,7 @@ public class DianaPassive : Passive {
     public Character_Diana Diana;
     public Character_Adriel Adriel;
     public Character_Michael Michael;
-    float healingAmmount = 20.0f;
+    float healingAmmount = 10.0f;
 
     //public static event System.Action OnPassiveActivated;
 

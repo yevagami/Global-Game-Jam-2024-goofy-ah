@@ -109,7 +109,6 @@ public class BattleManager : MonoBehaviour {
     }
 
     public bool Battle() {
-
         if (GameOver()) {
             return false; //Ends the battle if the conditions have been met
         }
@@ -121,12 +120,9 @@ public class BattleManager : MonoBehaviour {
         
         //If the turn has finished
         if (!participants[currentTurnIndex].StartTurn(skillPoints)) {
-          
             //changer.setSkillPoints(skillPoints);
             currentTurnIndex++;
         }
-
-        
         //If the turn index has gone through every participant, start from the beginning
         if (currentTurnIndex > participants.Count - 1) {
             currentTurnIndex = 0;
