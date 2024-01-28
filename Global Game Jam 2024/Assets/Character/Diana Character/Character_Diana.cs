@@ -8,7 +8,7 @@ public class Character_Diana : Character {
 
 
     public override bool StartTurn(int currentSkillPointCount) {
-        if (Input.GetKeyUp(KeyCode.D)) {
+        if (Input.GetKeyDown(KeyCode.D)) {
             Debug.Log("Diana's Turn Has Ended");
             return false;
         }

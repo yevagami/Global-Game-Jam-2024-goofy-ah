@@ -117,6 +117,8 @@ public class BattleManager : MonoBehaviour {
             //changer.setSkillPoints(skillPoints);
             currentTurnIndex++;
         }
+
+        
         
 
         //If the turn index has gone through every participant, start from the beginning

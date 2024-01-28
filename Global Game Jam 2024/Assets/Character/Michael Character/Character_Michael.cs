@@ -10,12 +10,12 @@ public class Character_Michael : Character
 
     public override bool StartTurn(int currentSkillPointCount)
     {
-        if (Input.GetKeyUp(KeyCode.M))
+        if (Input.GetKey(KeyCode.M))
         {
             Debug.Log("Michael's Turn Has Ended");
             return false;
         }
-
+        Debug.Log("test");
         return true;
     }
 
