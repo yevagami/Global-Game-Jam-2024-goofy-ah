@@ -36,8 +36,7 @@ public class Character_DrSottLeaver : Character {
                 playerList[i].TakeDamage(50.0f);
             }
         }
-        return false;
-        return (!battleManager.textStuff.PrintAnnouncement("Scott Unleashed A Deadly attack", 1.0f));
+        return (battleManager.textStuff.PrintAnnouncement("Scott Unleashed A Deadly attack", 1.0f));
     }
 
     

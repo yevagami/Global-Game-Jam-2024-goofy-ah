@@ -24,6 +24,8 @@ public class TextChange : MonoBehaviour
 
     public Image portraitRenderer;
 
+    [SerializeField] Slider healthSlider;
+
     // Start is called before the first frame update
     public void setText() {
         Character currentChar = bm.GetParticipants()[bm.currentTurnIndex];
@@ -36,6 +38,7 @@ public class TextChange : MonoBehaviour
         currentSkillPoints.text = bm.skillPoints.ToString();
         currentTurn.text = bm.turnCounter.ToString();
         portraitRenderer.sprite = currentChar.portrait;
+        healthSlider.value = currentChar.currentHealth / currentChar.baseHealth; 
     }
 
     public void setSkillPoints(int currnetSkillpoints) { 

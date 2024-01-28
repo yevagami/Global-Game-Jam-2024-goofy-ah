@@ -424,6 +424,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520813907}
   m_CullTransparentMesh: 1
+--- !u!114 &587728067 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2841394288733807327, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
+  m_PrefabInstance: {fileID: 1120206002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &819644402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4912493411164362136, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
@@ -824,6 +835,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2823898528779927533, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 587728067}
+    - target: {fileID: 2841394288733807327, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2957527499223813876, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1100,7 +1119,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 73.03195
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4013100320776812107, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4093635871881584339, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
     m_AddedGameObjects:
