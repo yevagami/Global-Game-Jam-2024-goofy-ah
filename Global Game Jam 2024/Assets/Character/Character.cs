@@ -40,6 +40,10 @@ public abstract class Character : MonoBehaviour {
     public float currentDefense;
     protected float baseDefense = 20.0f;
     public float currentAttack;
+
+    //portrait
+    public Sprite portrait;
+
     public float GetCurrentAttack() {
         var attack = currentAttack;
         if (isBuffed) attack *= 1.5f;

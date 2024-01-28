@@ -6,6 +6,9 @@ public class BattleManager : MonoBehaviour {
     //public TextChange changer;
     [SerializeField] GameManager manager;
 
+    //Reference to the text renderer
+    public TextBoxManager textStuff;
+
     //public TextChange battleStats;
     //For the sake of testing
     public List<GameObject> characterObjects = new List<GameObject>();
@@ -66,27 +69,30 @@ public class BattleManager : MonoBehaviour {
     enum States { Start, Play, End }
     States currentState = States.Start;
 
+    private void Start() {
+        //Adds the gameobjects into a list of participants
+        for (int i = 0; i < characterObjects.Count; i++) {
+            if (characterObjects.Count <= 0.0f)
+                break;
+
+            Character temp = characterObjects[i].GetComponent<Character>();
+            if (temp == null) { continue; }
+            participants.Add(temp);
+        }
+
+        //Set the battle manager of the participants to this
+        for (int i = 0; i < participants.Count; i++) {
+            if (participants[i] != null) {
+                participants[i].SetBattleManager(this);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update() {
         switch (currentState) {
             case States.Start:
-                //Adds the gameobjects into a list of participants
-                for (int i = 0; i < characterObjects.Count; i++) {
-                    if (characterObjects.Count <= 0.0f)
-                        break;
-                    
-                    Character temp = characterObjects[i].GetComponent<Character>();
-                    if (temp == null) { continue; }
-                    participants.Add(temp);
-                }
-
-                //Set the battle manager of the participants to this
-                for (int i = 0; i < participants.Count; i++) {
-                    if (participants[i] != null) {
-                        participants[i].SetBattleManager(this);
-                    }
-                }
-
+                Debug.Log("Game is starting");
                 currentState = States.Play;
                 break;
 
@@ -96,7 +102,6 @@ public class BattleManager : MonoBehaviour {
 
             case States.End:
                 Debug.Log("Battle is over");
-                manager.CloseBattleScreen();
                 break;
         }
     }
@@ -119,15 +124,12 @@ public class BattleManager : MonoBehaviour {
         }
 
         
-        
-
         //If the turn index has gone through every participant, start from the beginning
         if (currentTurnIndex > participants.Count - 1) {
             currentTurnIndex = 0;
             turnCounter++;
             //changer.setCurrentTurn(turnCounter);
         }
-        
 
         return true;
     }
@@ -176,5 +178,16 @@ public class BattleManager : MonoBehaviour {
         if(currentTurnIndex == 0) return null;
         if (currentTurnIndex > participants.Count) return null;
         return participants[currentTurnIndex];
+    }
+
+
+    //Skips a turn (self explanatory)
+    public void SkipTurn() {
+        currentTurnIndex++;
+        if (currentTurnIndex > participants.Count - 1) {
+            currentTurnIndex = 0;
+            turnCounter++;
+        }
+        Debug.Log("Huh");
     }
 }

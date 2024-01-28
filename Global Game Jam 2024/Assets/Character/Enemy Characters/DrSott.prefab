@@ -47,13 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
   isDead: 0
-  currentTeam: 0
+  currentTeam: 1
   currentHealth: 0
   currentEnergy: 20
   maxEnergy: 100
   energyPerTurn: 20
+  baseHealth: 100
   currentDefense: 0
   currentAttack: 0
+  portrait: {fileID: 0}
   isSad: 0
   isDepressed: 0
   isTaunting: 0
@@ -77,4 +79,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f61270d38053ea343bad4e983b2ff610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DrSottLeaver: {fileID: 0}
+  DrSottLeaver: {fileID: -220696657089136684}

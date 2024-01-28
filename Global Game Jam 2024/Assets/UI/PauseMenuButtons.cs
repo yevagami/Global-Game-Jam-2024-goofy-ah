@@ -7,6 +7,8 @@ public class PauseMenuButtons : MonoBehaviour
 {
     public Canvas pauseCanvas;
 
+
+
     private void Update() {
         if (Input.GetKeyDown(KeyCode.P)) {
             pauseCanvas.gameObject.SetActive(true);

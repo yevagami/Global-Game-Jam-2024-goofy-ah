@@ -22,25 +22,22 @@ public class TextChange : MonoBehaviour
     // boss
     public TextMeshProUGUI currentBossName;
 
+    public Image portraitRenderer;
 
     // Start is called before the first frame update
-    public void Awake() {
-        bm = GetComponentInParent<BattleManager>();
-    }
-    public void setText(Character character) {
+    public void setText() {
         Character currentChar = bm.GetParticipants()[bm.currentTurnIndex];
         nameOfTheCurrentChar.text = currentChar.name.ToString();
         currentHP.text = currentChar.currentHealth.ToString();
         currentDef.text = currentChar.currentDefense.ToString();
         currentAttack.text = currentChar.currentAttack.ToString();
-        currentBossName.text = bm.GetCharacterByTeam<Character>(Character.Team.ENEMY, "Dr. Sott Leaver (PH.D)").name.ToString();
+        currentBossName.text = "Dr. Sott Leaver (PH.D)";
 
         currentSkillPoints.text = bm.skillPoints.ToString();
-        currentTurn.text = bm.currentTurnIndex.ToString();
-
-      
-        
+        currentTurn.text = bm.turnCounter.ToString();
+        portraitRenderer.sprite = currentChar.portrait;
     }
+
     public void setSkillPoints(int currnetSkillpoints) { 
         currentSkillPoints.text = currnetSkillpoints.ToString();
     }
@@ -49,8 +46,8 @@ public class TextChange : MonoBehaviour
             currentTurn.text = currnetTurn.ToString();
     }
     // Update is called once per frame
-    void Update()
-    {
-        
+
+    private void FixedUpdate() {
+        setText();
     }
 }
