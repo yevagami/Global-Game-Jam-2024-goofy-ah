@@ -25,6 +25,21 @@ public class Enemy_Test : Character
         return;
     }
 
+    public override void usePassive()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void useSkill()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void useUltimate()
+    {
+        throw new System.NotImplementedException();
+    }
+
     protected override void InitiateSoundEffects() {
         return;
     }

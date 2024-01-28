@@ -60,4 +60,19 @@ public class Character_DrSottLeaver : Character {
         currentHealth = bossHP;
         currentDefense = bossDefense;
     }
+
+    public override void useSkill()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void useUltimate()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void usePassive()
+    {
+        throw new NotImplementedException();
+    }
 }

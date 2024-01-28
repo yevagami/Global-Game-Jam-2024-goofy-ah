@@ -22,6 +22,21 @@ public class Character_Test : Character
         return;
     }
 
+    public override void usePassive()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void useSkill()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void useUltimate()
+    {
+        throw new System.NotImplementedException();
+    }
+
     protected override void InitiateSoundEffects() {
         characterSoundEffects.Add("kiriko", Resources.Load<AudioClip>("Sounds/my bike"));
         characterSoundEffects.Add("gyat", Resources.Load<AudioClip>("Sounds/gyat"));
