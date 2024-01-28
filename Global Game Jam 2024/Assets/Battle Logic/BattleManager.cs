@@ -6,6 +6,9 @@ public class BattleManager : MonoBehaviour {
     //public TextChange changer;
     [SerializeField] GameManager manager;
 
+    //Reference to the text renderer
+    public TextBoxManager textStuff;
+
     //public TextChange battleStats;
     //For the sake of testing
     public List<GameObject> characterObjects = new List<GameObject>();
