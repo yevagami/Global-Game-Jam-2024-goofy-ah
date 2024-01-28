@@ -33,13 +33,11 @@ public class Character_DrSottLeaver : Character {
         List<Character> playerList = battleManager.GetParticipants() ;
         for(int i = 0; i < playerList.Count; i++) {
             if (playerList[i].currentTeam == Team.FRIEND) {
-                playerList[i].TakeDamage(10.0f);
+                playerList[i].TakeDamage(50.0f);
             }
-
-            return (!battleManager.textStuff.PrintAnnouncement("Scott Unleashed A Deadly attack", 1.0f));
         }
-
-        return true;
+        return false;
+        return (!battleManager.textStuff.PrintAnnouncement("Scott Unleashed A Deadly attack", 1.0f));
     }
 
     
