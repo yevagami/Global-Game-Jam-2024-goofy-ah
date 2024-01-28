@@ -67,6 +67,7 @@ public abstract class Character : MonoBehaviour {
         
         characterSoundEffects = new Dictionary<string, AudioClip>();
         InitiateSoundEffects();
+        
     }
 
     //  initiate all character sfx to the character sfx dictionary

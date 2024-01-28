@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour {
-    public TextChange changer;
+    //public TextChange changer;
     [SerializeField] GameManager manager;
 
-    public TextChange battleStats;
+    //public TextChange battleStats;
     //For the sake of testing
     public List<GameObject> characterObjects = new List<GameObject>();
     List<Character> participants = new List<Character>();
@@ -29,11 +29,9 @@ public class BattleManager : MonoBehaviour {
         List<T> matchingCharacters = new();
         
         foreach (Character character in participants) {
-            if (character is T && character != null) {
+            if (character is T && character != null) 
                 matchingCharacters.Add((T)character);
-            }
         }
-
         if (matchingCharacters.Count > 0) {
             return matchingCharacters[Random.Range(0, matchingCharacters.Count)];
         }
@@ -74,6 +72,9 @@ public class BattleManager : MonoBehaviour {
             case States.Start:
                 //Adds the gameobjects into a list of participants
                 for (int i = 0; i < characterObjects.Count; i++) {
+                    if (characterObjects.Count <= 0.0f)
+                        break;
+                    
                     Character temp = characterObjects[i].GetComponent<Character>();
                     if (temp == null) { continue; }
                     participants.Add(temp);
@@ -107,11 +108,13 @@ public class BattleManager : MonoBehaviour {
         }
 
         DebugPrintBattleStatus();
-        battleStats.setText(participants[currentTurnIndex]);
+        /*if (battleStats != null) {
+            battleStats.setText(participants[currentTurnIndex]);
+        }*/
         
         //If the turn has finished
         if (!participants[currentTurnIndex].StartTurn(skillPoints)) {
-            changer.setSkillPoints(skillPoints);
+            //changer.setSkillPoints(skillPoints);
             currentTurnIndex++;
         }
         
@@ -120,8 +123,9 @@ public class BattleManager : MonoBehaviour {
         if (currentTurnIndex > participants.Count - 1) {
             currentTurnIndex = 0;
             turnCounter++;
-            changer.setCurrentTurn(turnCounter);
+            //changer.setCurrentTurn(turnCounter);
         }
+        
 
         return true;
     }
@@ -144,7 +148,8 @@ public class BattleManager : MonoBehaviour {
 
         //Check if enemies are alive
         for (int i = 0; i < participants.Count; i++) {
-            if (!GetOtherCharacter<Character_DrSottLeaver>().hasLeft) {
+            var otherCharacter = GetOtherCharacter<Character_DrSottLeaver>();
+            if (otherCharacter != null && !otherCharacter.hasLeft) {
                 enemiesAlive = true;
                 break;
             }

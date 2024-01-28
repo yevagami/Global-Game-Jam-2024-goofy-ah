@@ -1,12 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class HealthBar : MonoBehaviour {
+public class HealthBar : MonoBehaviour
+{
+    public BattleManager bm;
     public Slider slider;
-    public Character character;
+    
 
-    void Update() {
-        slider.value = character.currentHealth;
-    }
 }
