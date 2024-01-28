@@ -96,7 +96,6 @@ public class BattleManager : MonoBehaviour {
 
             case States.End:
                 Debug.Log("Battle is over");
-                manager.CloseBattleScreen();
                 break;
         }
     }
@@ -119,15 +118,12 @@ public class BattleManager : MonoBehaviour {
         }
 
         
-        
-
         //If the turn index has gone through every participant, start from the beginning
         if (currentTurnIndex > participants.Count - 1) {
             currentTurnIndex = 0;
             turnCounter++;
             //changer.setCurrentTurn(turnCounter);
         }
-        
 
         return true;
     }

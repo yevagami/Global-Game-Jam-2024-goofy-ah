@@ -293,7 +293,6 @@ GameObject:
   - component: {fileID: 121819996}
   - component: {fileID: 121819998}
   - component: {fileID: 121819997}
-  - component: {fileID: 121819999}
   m_Layer: 5
   m_Name: ATK num
   m_TagString: Untagged
@@ -317,8 +316,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 359.2793, y: 17.32196}
-  m_SizeDelta: {x: 137.2748, y: 53.1873}
+  m_AnchoredPosition: {x: 363.9156, y: 23.161835}
+  m_SizeDelta: {x: 160.4563, y: 53.1873}
   m_Pivot: {x: 0.5, y: 0.70537114}
 --- !u!114 &121819997
 MonoBehaviour:
@@ -417,27 +416,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121819995}
   m_CullTransparentMesh: 1
---- !u!114 &121819999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121819995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9311591fd4cde14881d0314f17f499d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bm: {fileID: 0}
-  nameOfTheCurrentChar: {fileID: 1583337780}
-  currentHP: {fileID: 154563356}
-  currentDef: {fileID: 1960161508}
-  currentAttack: {fileID: 121819997}
-  currentSkillPoints: {fileID: 1938026989}
-  currentTurn: {fileID: 1831702197}
-  currentBossName: {fileID: 266191930}
-  portraitRenderer: {fileID: 0}
 --- !u!1 &154563354
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +427,6 @@ GameObject:
   - component: {fileID: 154563355}
   - component: {fileID: 154563357}
   - component: {fileID: 154563356}
-  - component: {fileID: 154563358}
   m_Layer: 5
   m_Name: HP num
   m_TagString: Untagged
@@ -473,8 +450,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 359.27933, y: 89.60867}
-  m_SizeDelta: {x: 137.2748, y: 53.1873}
+  m_AnchoredPosition: {x: 362.71356, y: 61.1}
+  m_SizeDelta: {x: 154.4462, y: 53.1873}
   m_Pivot: {x: 0.5, y: 0.70537114}
 --- !u!114 &154563356
 MonoBehaviour:
@@ -573,27 +550,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154563354}
   m_CullTransparentMesh: 1
---- !u!114 &154563358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154563354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9311591fd4cde14881d0314f17f499d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bm: {fileID: 0}
-  nameOfTheCurrentChar: {fileID: 1583337780}
-  currentHP: {fileID: 154563356}
-  currentDef: {fileID: 1960161508}
-  currentAttack: {fileID: 121819997}
-  currentSkillPoints: {fileID: 1938026989}
-  currentTurn: {fileID: 1831702197}
-  currentBossName: {fileID: 266191930}
-  portraitRenderer: {fileID: 0}
 --- !u!1 &266191928
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +561,6 @@ GameObject:
   - component: {fileID: 266191929}
   - component: {fileID: 266191931}
   - component: {fileID: 266191930}
-  - component: {fileID: 266191932}
   m_Layer: 5
   m_Name: BOSS NAME
   m_TagString: Untagged
@@ -629,8 +584,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 21, y: -18}
-  m_SizeDelta: {x: 155.3107, y: 49.544098}
+  m_AnchoredPosition: {x: 8.0004, y: -18}
+  m_SizeDelta: {x: 578.03, y: 49.5441}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &266191930
 MonoBehaviour:
@@ -729,27 +684,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266191928}
   m_CullTransparentMesh: 1
---- !u!114 &266191932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 266191928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9311591fd4cde14881d0314f17f499d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bm: {fileID: 0}
-  nameOfTheCurrentChar: {fileID: 1583337780}
-  currentHP: {fileID: 154563356}
-  currentDef: {fileID: 1960161508}
-  currentAttack: {fileID: 121819997}
-  currentSkillPoints: {fileID: 1938026989}
-  currentTurn: {fileID: 1831702197}
-  currentBossName: {fileID: 266191930}
-  portraitRenderer: {fileID: 0}
 --- !u!1 &293456968
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,8 +741,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -859,7 +793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 20.007689, y: -35.446915}
+  m_AnchoredPosition: {x: 8, y: -34}
   m_SizeDelta: {x: 289.0135, y: 6.9844055}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &408981760
@@ -1235,8 +1169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 309.08386, y: 17.56012}
-  m_SizeDelta: {x: 137.2748, y: 53.1873}
+  m_AnchoredPosition: {x: 306.33646, y: 23.4}
+  m_SizeDelta: {x: 123.5378, y: 53.1873}
   m_Pivot: {x: 0.5, y: 0.70537114}
 --- !u!114 &747238188
 MonoBehaviour:
@@ -1514,8 +1448,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 309.08386, y: 53.715393}
-  m_SizeDelta: {x: 137.2748, y: 53.1873}
+  m_AnchoredPosition: {x: 306.85156, y: 42}
+  m_SizeDelta: {x: 126.1134, y: 53.1873}
   m_Pivot: {x: 0.5, y: 0.70537114}
 --- !u!114 &1036002797
 MonoBehaviour:
@@ -1670,10 +1604,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6951484785700046750, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7901872861322122578, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
-      propertyPath: StartBattle
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1831,8 +1761,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -2.4395077, y: 51.77002}
-  m_SizeDelta: {x: 803.9063, y: 111.7204}
+  m_AnchoredPosition: {x: -2.4395077, y: 53.21849}
+  m_SizeDelta: {x: 803.9063, y: 114.6174}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1158608380
 MonoBehaviour:
@@ -2219,7 +2149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9311591fd4cde14881d0314f17f499d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bm: {fileID: 0}
+  bm: {fileID: 781524222}
   nameOfTheCurrentChar: {fileID: 1583337780}
   currentHP: {fileID: 154563356}
   currentDef: {fileID: 1960161508}
@@ -2227,7 +2157,7 @@ MonoBehaviour:
   currentSkillPoints: {fileID: 1938026989}
   currentTurn: {fileID: 1831702197}
   currentBossName: {fileID: 266191930}
-  portraitRenderer: {fileID: 0}
+  portraitRenderer: {fileID: 293456970}
 --- !u!1 &1416578408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,8 +2447,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.07830751, y: -2.988739}
-  m_SizeDelta: {x: 285.1202, y: 5.0916004}
+  m_AnchoredPosition: {x: 0.07830751, y: -6.1868}
+  m_SizeDelta: {x: 285.1202, y: 11.4877}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1505697863
 MonoBehaviour:
@@ -2569,7 +2499,6 @@ GameObject:
   - component: {fileID: 1583337778}
   - component: {fileID: 1583337781}
   - component: {fileID: 1583337780}
-  - component: {fileID: 1583337779}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -2596,27 +2525,6 @@ RectTransform:
   m_AnchoredPosition: {x: 53.999596, y: 82.987305}
   m_SizeDelta: {x: 161.8217, y: 46.324097}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1583337779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583337777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9311591fd4cde14881d0314f17f499d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bm: {fileID: 0}
-  nameOfTheCurrentChar: {fileID: 1583337780}
-  currentHP: {fileID: 154563356}
-  currentDef: {fileID: 1960161508}
-  currentAttack: {fileID: 121819997}
-  currentSkillPoints: {fileID: 1938026989}
-  currentTurn: {fileID: 1831702197}
-  currentBossName: {fileID: 266191930}
-  portraitRenderer: {fileID: 0}
 --- !u!114 &1583337780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2826,8 +2734,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 309.08377, y: 89.84686}
-  m_SizeDelta: {x: 137.2748, y: 53.1873}
+  m_AnchoredPosition: {x: 306.1646, y: 61.33818}
+  m_SizeDelta: {x: 122.6792, y: 53.1873}
   m_Pivot: {x: 0.5, y: 0.70537114}
 --- !u!114 &1691074579
 MonoBehaviour:
@@ -3215,7 +3123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 120, y: 29.96}
+  m_AnchoredPosition: {x: 136, y: 29.96}
   m_SizeDelta: {x: 172.506, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1857990659
@@ -3495,7 +3403,6 @@ GameObject:
   - component: {fileID: 1938026987}
   - component: {fileID: 1938026990}
   - component: {fileID: 1938026989}
-  - component: {fileID: 1938026988}
   m_Layer: 5
   m_Name: Ammount of Skill points
   m_TagString: Untagged
@@ -3522,27 +3429,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.00017595, y: 29.96}
   m_SizeDelta: {x: 56.079, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1938026988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938026986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9311591fd4cde14881d0314f17f499d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bm: {fileID: 0}
-  nameOfTheCurrentChar: {fileID: 1583337780}
-  currentHP: {fileID: 0}
-  currentDef: {fileID: 0}
-  currentAttack: {fileID: 0}
-  currentSkillPoints: {fileID: 0}
-  currentTurn: {fileID: 0}
-  currentBossName: {fileID: 0}
-  portraitRenderer: {fileID: 0}
 --- !u!114 &1938026989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3651,7 +3537,6 @@ GameObject:
   - component: {fileID: 1960161507}
   - component: {fileID: 1960161509}
   - component: {fileID: 1960161508}
-  - component: {fileID: 1960161510}
   m_Layer: 5
   m_Name: Def num
   m_TagString: Untagged
@@ -3675,8 +3560,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 359.2793, y: 53.477203}
-  m_SizeDelta: {x: 137.2748, y: 53.1873}
+  m_AnchoredPosition: {x: 363.40045, y: 41.76181}
+  m_SizeDelta: {x: 157.8807, y: 53.1873}
   m_Pivot: {x: 0.5, y: 0.70537114}
 --- !u!114 &1960161508
 MonoBehaviour:
@@ -3775,27 +3660,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960161506}
   m_CullTransparentMesh: 1
---- !u!114 &1960161510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960161506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9311591fd4cde14881d0314f17f499d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bm: {fileID: 0}
-  nameOfTheCurrentChar: {fileID: 1583337780}
-  currentHP: {fileID: 154563356}
-  currentDef: {fileID: 1960161508}
-  currentAttack: {fileID: 121819997}
-  currentSkillPoints: {fileID: 1938026989}
-  currentTurn: {fileID: 1831702197}
-  currentBossName: {fileID: 266191930}
-  portraitRenderer: {fileID: 0}
 --- !u!1001 &1969805977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3907,7 +3771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -291.8154, y: 9.641418}
+  m_AnchoredPosition: {x: -291.82, y: 15.3}
   m_SizeDelta: {x: 131.8638, y: 11.987305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2136760163

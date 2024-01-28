@@ -101,8 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 2203219786492845421}
-  StartBattle: 0
-  EndBattle: 0
 --- !u!1001 &6098923169607917944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,7 +156,7 @@ PrefabInstance:
     - target: {fileID: 8074973569593089941, guid: 6572c176e9f7c584c9edacaa91ee0820, type: 3}
       propertyPath: portrait
       value: 
-      objectReference: {fileID: 2800000, guid: 2753e3bf49e2fe34b91ee3546e2ffcc7, type: 3}
+      objectReference: {fileID: -1020913818207443446, guid: 2753e3bf49e2fe34b91ee3546e2ffcc7, type: 3}
     - target: {fileID: 8074973569593089941, guid: 6572c176e9f7c584c9edacaa91ee0820, type: 3}
       propertyPath: battleManager
       value: 
@@ -189,7 +187,7 @@ PrefabInstance:
     - target: {fileID: 1815587287134485679, guid: 9cc4f25301469194d9cae0d5545d89e5, type: 3}
       propertyPath: portrait
       value: 
-      objectReference: {fileID: 2800000, guid: cef208ad77e785d4f9363227f6123892, type: 3}
+      objectReference: {fileID: 4785473574884619497, guid: cef208ad77e785d4f9363227f6123892, type: 3}
     - target: {fileID: 1815587287134485679, guid: 9cc4f25301469194d9cae0d5545d89e5, type: 3}
       propertyPath: battleManager
       value: 
@@ -308,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 5867127298318661912, guid: 753cb88d3564e0c478ff900705268504, type: 3}
       propertyPath: portrait
       value: 
-      objectReference: {fileID: 2800000, guid: 4921b5377a109dd42890594d6701fd9c, type: 3}
+      objectReference: {fileID: 2660841702497758986, guid: 4921b5377a109dd42890594d6701fd9c, type: 3}
     - target: {fileID: 5867127298318661912, guid: 753cb88d3564e0c478ff900705268504, type: 3}
       propertyPath: battleManager
       value: 
