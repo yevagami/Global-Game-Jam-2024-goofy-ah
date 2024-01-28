@@ -52,7 +52,6 @@ public class Character_Diana : Character
         }
 
         if (Input.GetKeyUp(KeyCode.Alpha3)) {
-            battleManager.SkipTurn();
             return false;
         }
 

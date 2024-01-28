@@ -35,7 +35,7 @@ public class Character_DrSottLeaver : Character {
         int action = Random.Range(0, 4);
         List<Character> playerList = battleManager.GetParticipants();
 
-        if(action > 2) {
+        if(action > 1) {
             for (int i = 0; i < playerList.Count; i++) {
                 if (playerList[i].currentTeam == Team.FRIEND) {
                     playerList[i].TakeDamage(10.0f);

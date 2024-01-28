@@ -35,13 +35,23 @@ public class Character_Michael : Character {
         if(battleManager.skillPoints > 0) {
             if (Input.GetKeyUp(KeyCode.Alpha1)) {
                 battleManager.useSkillPoint();
+
+                //Find scott and deal damage to him
+                //List<Character> playerList = battleManager.GetParticipants();
+                //for (int i = 0; i < playerList.Count; i++) {
+                //    if (playerList[i].currentTeam == Team.ENEMY) {
+                //        playerList[i].TakeDamage();
+                //    }
+                //}
+
                 return (battleManager.textStuff.PrintAnnouncement("Michael uses The Yappening", 1.0f));
             }
+
+            
         }
         
 
         if (Input.GetKeyUp(KeyCode.Alpha3)) {
-            battleManager.SkipTurn();
             return false;
         }
 

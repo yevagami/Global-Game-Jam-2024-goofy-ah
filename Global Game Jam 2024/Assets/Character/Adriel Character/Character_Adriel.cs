@@ -18,7 +18,6 @@ public class Character_Adriel : Character
         }
 
         if (Input.GetKeyUp(KeyCode.Alpha3)) {
-            battleManager.SkipTurn();
             return false;
         }
         return true;
