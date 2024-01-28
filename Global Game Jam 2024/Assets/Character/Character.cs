@@ -36,7 +36,7 @@ public abstract class Character : MonoBehaviour {
     public float maxEnergy = 100.0f;
     public float energyPerTurn = 20.0f;
     public void Heal(float health) { if (currentHealth + health >= baseHealth)  currentHealth += health; }
-    protected float baseHealth = 100.0f;
+    public float baseHealth = 100.0f;
     public float currentDefense;
     protected float baseDefense = 20.0f;
     public float currentAttack;

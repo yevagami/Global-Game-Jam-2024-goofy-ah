@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3687760343e397145b67866fe42c6afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changer: {fileID: 0}
+  manager: {fileID: 7901872861322122578}
   battleStats: {fileID: 0}
   characterObjects:
   - {fileID: 3864596106454848260}
@@ -101,6 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 2203219786492845421}
+  StartBattle: 0
+  EndBattle: 0
 --- !u!1001 &6098923169607917944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153,6 +157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Michael
       objectReference: {fileID: 0}
+    - target: {fileID: 8074973569593089941, guid: 6572c176e9f7c584c9edacaa91ee0820, type: 3}
+      propertyPath: battleManager
+      value: 
+      objectReference: {fileID: 2203219786492845421}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -176,6 +184,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6951484785700046750}
     m_Modifications:
+    - target: {fileID: 1815587287134485679, guid: 9cc4f25301469194d9cae0d5545d89e5, type: 3}
+      propertyPath: battleManager
+      value: 
+      objectReference: {fileID: 2203219786492845421}
     - target: {fileID: 4778278573509560576, guid: 9cc4f25301469194d9cae0d5545d89e5, type: 3}
       propertyPath: m_Name
       value: Diana
@@ -287,6 +299,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5867127298318661912, guid: 753cb88d3564e0c478ff900705268504, type: 3}
+      propertyPath: battleManager
+      value: 
+      objectReference: {fileID: 2203219786492845421}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
