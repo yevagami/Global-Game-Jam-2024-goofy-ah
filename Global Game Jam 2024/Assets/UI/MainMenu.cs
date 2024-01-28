@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void PlayGame() {
-        SceneManager.LoadScene("Overworld");
+        SceneManager.LoadScene("BattleScene");
     }
 
     public void QuitGame() {
