@@ -15,8 +15,6 @@ public class Character_Diana : Character {
 
         return true;
     }
-<<<<<<< Updated upstream
-=======
 
     public override void usePassive()
     {
@@ -32,7 +30,6 @@ public class Character_Diana : Character {
     {
         throw new NotImplementedException();
     }
->>>>>>> Stashed changes
 
     void useOuchieVoiceline() {
         int randomNumber = Random.Range(1, 4);
