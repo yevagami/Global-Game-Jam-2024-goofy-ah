@@ -2,18 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-
 public class HealthBar : MonoBehaviour {
     public Slider slider;
-  
-    public BattleManager bm;
+    public Character character;
 
-    void Update()
-    {
-        Character character = bm.GetCurrentParticipant();
-        slider.maxValue = character.baseHealth;
+    void Update() {
         slider.value = character.currentHealth;
-       
     }
 }

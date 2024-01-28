@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class PauseMenuButtons : MonoBehaviour
 {
     public Canvas pauseCanvas;
-    public Canvas inGameCanvas;
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.P)) {
+            pauseCanvas.gameObject.SetActive(true);
+        }
+    }
 
     public void ReturnToTheGameCallback() {
        
-        if (pauseCanvas.enabled)
-        {
+        if (pauseCanvas.enabled){
             pauseCanvas.gameObject.SetActive(false);
-            inGameCanvas.gameObject.SetActive(true);
         }
 
     }
     public void quitGameCallback() {
-        #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #elif UNITY_STANDALONE
-        Application.Quit();
-        #endif
+        SceneManager.LoadScene("Main Menu");
     }
 
 }
