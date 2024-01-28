@@ -15,6 +15,24 @@ public class Character_Diana : Character {
 
         return true;
     }
+<<<<<<< Updated upstream
+=======
+
+    public override void usePassive()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void useSkill()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void useUltimate()
+    {
+        throw new NotImplementedException();
+    }
+>>>>>>> Stashed changes
 
     void useOuchieVoiceline() {
         int randomNumber = Random.Range(1, 4);

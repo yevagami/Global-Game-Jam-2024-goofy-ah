@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -114,4 +115,8 @@ public abstract class Character : MonoBehaviour {
             currentEnergy += energyPerTurn;
         }
     }
+
+    abstract public void useSkill();
+    abstract public void useUltimate();
+    abstract public void usePassive();
 }

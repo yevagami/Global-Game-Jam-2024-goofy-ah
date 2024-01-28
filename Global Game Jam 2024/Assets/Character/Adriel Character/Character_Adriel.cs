@@ -58,4 +58,19 @@ public class Character_Adriel : Character
         currentDefense = baseDefense;
         currentAttack = baseAttack;
     }
+
+    public override void useSkill()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void useUltimate()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void usePassive()
+    {
+        throw new NotImplementedException();
+    }
 }

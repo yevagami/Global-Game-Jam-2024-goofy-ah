@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour {
     //public TextChange changer;
@@ -27,6 +28,7 @@ public class BattleManager : MonoBehaviour {
     public Character_Adriel GetAdrielCharacter() {
         return GetCharacterByTeam<Character_Adriel>(Character.Team.FRIEND, "Adriel");
     }
+
 
     public T GetOtherCharacter<T>() where T : Character {
         List<T> matchingCharacters = new();
@@ -119,6 +121,7 @@ public class BattleManager : MonoBehaviour {
         
         //If the turn has finished
         if (!participants[currentTurnIndex].StartTurn(skillPoints)) {
+          
             //changer.setSkillPoints(skillPoints);
             currentTurnIndex++;
         }
@@ -180,14 +183,54 @@ public class BattleManager : MonoBehaviour {
         return participants[currentTurnIndex];
     }
 
+    public void getSkillPoint() {
+
+        if (skillPoints < 5)
+        {
+            skillPoints++;
+        }
+        else if (skillPoints == 5) {
+            skillPoints = 5;
+        }
+      
+    }
+
+    public bool useSkillPoint() {
+        if (skillPoints > 0) {
+            skillPoints--;
+            return true;
+        }
+        return false;
+    }
 
     //Skips a turn (self explanatory)
     public void SkipTurn() {
+        getSkillPoint();
         currentTurnIndex++;
         if (currentTurnIndex > participants.Count - 1) {
             currentTurnIndex = 0;
             turnCounter++;
         }
         Debug.Log("Huh");
+    }
+
+    public void SkillUse() {
+        if (useSkillPoint()) {
+
+            currentTurnIndex++;
+            if (currentTurnIndex > participants.Count - 1)
+            {
+                currentTurnIndex = 0;
+                turnCounter++;
+            }
+        }
+    }
+
+    public Button ultiBut;
+    public void UltimateUsage() {
+        if (GetCurrentParticipant().currentEnergy == GetCurrentParticipant().maxEnergy) { 
+            ultiBut.interactable = true; 
+            
+        }
     }
 }

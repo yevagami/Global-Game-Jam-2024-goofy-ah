@@ -66,5 +66,18 @@ public class Character_Michael : Character
         Debug.Log("adding Michael's sound files to the dictionary");
     }
 
-    
+    public override void useSkill()
+    {
+        
+    }
+
+    public override void useUltimate()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void usePassive()
+    {
+        throw new NotImplementedException();
+    }
 }
