@@ -22,6 +22,7 @@ public class TextChange : MonoBehaviour
     // boss
     public TextMeshProUGUI currentBossName;
 
+    public Image portraitRenderer;
 
     // Start is called before the first frame update
     public void Awake() {
@@ -37,9 +38,9 @@ public class TextChange : MonoBehaviour
 
         currentSkillPoints.text = bm.skillPoints.ToString();
         currentTurn.text = bm.currentTurnIndex.ToString();
+        portraitRenderer.sprite = currentChar.portrait;
 
-      
-        
+
     }
     public void setSkillPoints(int currnetSkillpoints) { 
         currentSkillPoints.text = currnetSkillpoints.ToString();

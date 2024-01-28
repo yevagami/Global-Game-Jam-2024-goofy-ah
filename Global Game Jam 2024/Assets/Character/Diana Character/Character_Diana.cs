@@ -6,7 +6,6 @@ using UnityEngine;
 public class Character_Diana : Character {
     bool endTurn = false;
 
-
     public override bool StartTurn(int currentSkillPointCount) {
         if (Input.GetKeyDown(KeyCode.D)) {
             Debug.Log("Diana's Turn Has Ended");

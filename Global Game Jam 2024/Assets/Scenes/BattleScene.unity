@@ -437,6 +437,7 @@ MonoBehaviour:
   currentSkillPoints: {fileID: 1938026989}
   currentTurn: {fileID: 1831702197}
   currentBossName: {fileID: 266191930}
+  portraitRenderer: {fileID: 0}
 --- !u!1 &154563354
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +593,7 @@ MonoBehaviour:
   currentSkillPoints: {fileID: 1938026989}
   currentTurn: {fileID: 1831702197}
   currentBossName: {fileID: 266191930}
+  portraitRenderer: {fileID: 0}
 --- !u!1 &266191928
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +749,7 @@ MonoBehaviour:
   currentSkillPoints: {fileID: 1938026989}
   currentTurn: {fileID: 1831702197}
   currentBossName: {fileID: 266191930}
+  portraitRenderer: {fileID: 0}
 --- !u!1 &293456968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2227,7 @@ MonoBehaviour:
   currentSkillPoints: {fileID: 1938026989}
   currentTurn: {fileID: 1831702197}
   currentBossName: {fileID: 266191930}
+  portraitRenderer: {fileID: 0}
 --- !u!1 &1416578408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,6 +2616,7 @@ MonoBehaviour:
   currentSkillPoints: {fileID: 1938026989}
   currentTurn: {fileID: 1831702197}
   currentBossName: {fileID: 266191930}
+  portraitRenderer: {fileID: 0}
 --- !u!114 &1583337780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3537,6 +3542,7 @@ MonoBehaviour:
   currentSkillPoints: {fileID: 0}
   currentTurn: {fileID: 0}
   currentBossName: {fileID: 0}
+  portraitRenderer: {fileID: 0}
 --- !u!114 &1938026989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3789,6 +3795,7 @@ MonoBehaviour:
   currentSkillPoints: {fileID: 1938026989}
   currentTurn: {fileID: 1831702197}
   currentBossName: {fileID: 266191930}
+  portraitRenderer: {fileID: 0}
 --- !u!1001 &1969805977
 PrefabInstance:
   m_ObjectHideFlags: 0
