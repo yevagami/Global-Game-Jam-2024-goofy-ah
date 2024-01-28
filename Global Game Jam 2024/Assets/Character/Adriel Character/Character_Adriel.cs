@@ -23,6 +23,31 @@ public class Character_Adriel : Character
         return true;
     }
     
+    public override void Update()
+    {  
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            PlaySound("it is what it is!");
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            PlaySound("the mask...");
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            PlaySound("the mask!");
+        }
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            PlaySound("respectfully...");
+        }        
+        else if (Input.GetKeyDown(KeyCode.G))
+        {
+            PlaySound("shut up.");
+        }
+
+        base.Update();
+    }
     protected override void InitiateSoundEffects() {
         base.characterSoundEffects.Add("it is what it is...", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 1"));   
         base.characterSoundEffects.Add("it is what it is!", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 2"));   

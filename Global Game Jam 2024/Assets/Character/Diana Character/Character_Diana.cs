@@ -97,6 +97,33 @@ public class Character_Diana : Character
         base.TakeDamage(recievedDamage);
     }
 
+
+    public override void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PlaySound("a little bit for you!~");
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            PlaySound("it IS about ME");
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            PlaySound("come on guys!~");
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            PlaySound("son of a birch");
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            PlaySound("heyy");
+        }
+        
+        base.Update();
+    }
+
     protected override void InitiateSoundEffects()
     {
         characterSoundEffects.Add("a little bit for you!", Resources.Load<AudioClip>("Sounds/Diana/Diana 1"));
