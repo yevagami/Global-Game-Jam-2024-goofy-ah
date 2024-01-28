@@ -24,11 +24,13 @@ public class TextChange : MonoBehaviour
 
     public Image portraitRenderer;
 
+
     [SerializeField] Slider healthSlider;
 
     public TextMeshProUGUI passiveDescription;
     public TextMeshProUGUI skillDescription;
     public TextMeshProUGUI ultimateDescriprion;
+
     // Start is called before the first frame update
     public void setText() {
         Character currentChar = bm.GetParticipants()[bm.currentTurnIndex];
