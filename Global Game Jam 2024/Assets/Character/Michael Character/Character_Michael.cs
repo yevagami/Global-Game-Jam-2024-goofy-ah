@@ -88,6 +88,45 @@ public class Character_Michael : Character {
         base.TakeDamage(recievedDamage);
     }
 
+
+    public override void Update() {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            PlaySound("got a little closer");
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            PlaySound("more time together");
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            PlaySound("dont like pain");
+        }
+        else if (Input.GetKeyDown(KeyCode.V))
+        {
+            PlaySound("pick me extended");
+        }        
+        else if (Input.GetKeyDown(KeyCode.B))
+        {
+            PlaySound("pick me love me");
+        }
+        else if (Input.GetKeyDown(KeyCode.N))
+        {
+            PlaySound("bbg~");
+        }
+        else if (Input.GetKeyDown(KeyCode.M))
+        {
+            PlaySound("nya~");
+        }
+        else if (Input.GetKeyDown(KeyCode.Comma))
+        {
+            PlaySound("meow~");
+        }
+        
+        
+        base.Update();
+    }
+
     protected override void InitiateSoundEffects() {
         
         characterSoundEffects.Add("got out of here", Resources.Load<AudioClip>("Sounds/Michael/Michael 8"));

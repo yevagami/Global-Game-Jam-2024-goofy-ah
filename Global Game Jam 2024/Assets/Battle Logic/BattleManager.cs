@@ -100,6 +100,7 @@ public class BattleManager : MonoBehaviour {
                 break;
 
             case States.Play:
+                
                 if (!Battle()) { currentState = States.End; }
                 break;
 
@@ -107,6 +108,7 @@ public class BattleManager : MonoBehaviour {
                 Debug.Log("Battle is over");
                 break;
         }
+        
     }
 
     public bool Battle() {

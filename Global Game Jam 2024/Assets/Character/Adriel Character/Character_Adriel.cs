@@ -52,9 +52,7 @@ public class Character_Adriel : Character
                     audioSource.clip = clip;
                     audioSource.Play();
                     return true;
-                }
-                else
-                {
+                }else {
                     Debug.LogWarning($"Audio clip for sound label '{soundLabel}' is null");
                 }
             }
@@ -98,6 +96,32 @@ public class Character_Adriel : Character
         currentDefense = baseDefense;
         currentAttack = baseAttack;
 
+    }
+
+    public override void Update()
+    {  
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            PlaySound("it is what it is!");
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            PlaySound("the mask...");
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            PlaySound("the mask!");
+        }
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            PlaySound("respectfully...");
+        }        
+         else if (Input.GetKeyDown(KeyCode.G))
+        {
+            PlaySound("shut up.");
+        }
+
+        base.Update();
     }
 
     public override void useSkill()

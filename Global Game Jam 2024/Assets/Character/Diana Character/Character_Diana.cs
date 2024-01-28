@@ -97,18 +97,45 @@ public class Character_Diana : Character
         base.TakeDamage(recievedDamage);
     }
 
+    public override void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            PlaySound("it is what it is!");
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            PlaySound("the mask...");
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            PlaySound("the mask!");
+        }
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            PlaySound("respectfully...");
+        }        
+        else if (Input.GetKeyDown(KeyCode.G))
+        {
+            PlaySound("shut up.");
+        }
+        
+        
+        base.Update();
+    }
+
     protected override void InitiateSoundEffects()
     {
-        characterSoundEffects.Add("a little bit for you!", Resources.Load<AudioClip>("Sounds/Diana/Diana 1"));
-        characterSoundEffects.Add("a little bit for you~", Resources.Load<AudioClip>("Sounds/Diana/Diana 2"));
-        characterSoundEffects.Add("a little bit for you!~", Resources.Load<AudioClip>("Sounds/Diana/Diana 3"));
+        characterSoundEffects.Add("a little bit for you!", Resources.Load<AudioClip>("Sounds/Diana/Diana 1")); 
+        characterSoundEffects.Add("a little bit for you~", Resources.Load<AudioClip>("Sounds/Diana/Diana 2"));//
+        characterSoundEffects.Add("a little bit for you!~", Resources.Load<AudioClip>("Sounds/Diana/Diana 3"));//
         characterSoundEffects.Add("it IS about me", Resources.Load<AudioClip>("Sounds/Diana/Diana 4"));
-        characterSoundEffects.Add("it IS about ME", Resources.Load<AudioClip>("Sounds/Diana/Diana 5"));
+        characterSoundEffects.Add("it IS about ME", Resources.Load<AudioClip>("Sounds/Diana/Diana 5"));//
         characterSoundEffects.Add("come on guys", Resources.Load<AudioClip>("Sounds/Diana/Diana 6"));
-        characterSoundEffects.Add("come on guys!~", Resources.Load<AudioClip>("Sounds/Diana/Diana 7"));
-        characterSoundEffects.Add("son of a birch", Resources.Load<AudioClip>("Sounds/Diana/Diana 8"));
+        characterSoundEffects.Add("come on guys!~", Resources.Load<AudioClip>("Sounds/Diana/Diana 7"));//
+        characterSoundEffects.Add("son of a birch", Resources.Load<AudioClip>("Sounds/Diana/Diana 8"));//
         characterSoundEffects.Add("i dont like that...", Resources.Load<AudioClip>("Sounds/Diana/Diana 9"));
-        characterSoundEffects.Add("heyy", Resources.Load<AudioClip>("Sounds/Diana/Diana 12"));
+        characterSoundEffects.Add("heyy", Resources.Load<AudioClip>("Sounds/Diana/Diana 12"));//
 
         Debug.Log("Diana unfortunately can use her voice in game :(");
     }

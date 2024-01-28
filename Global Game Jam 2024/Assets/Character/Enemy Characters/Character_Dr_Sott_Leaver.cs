@@ -9,6 +9,7 @@ public class Character_DrSottLeaver : Character {
     //  Logic-based variables
     public bool hasLeft = false;
     public float currentLeaveChance = 5.0f;
+    public float maxLeaveChance = 100.0f;
     public float currentLeaveIncrementPerTurn = 5.0f;
 
     //  Sott's stats
@@ -38,12 +39,22 @@ public class Character_DrSottLeaver : Character {
         if(action > 1) {
             for (int i = 0; i < playerList.Count; i++) {
                 if (playerList[i].currentTeam == Team.FRIEND) {
-                    playerList[i].TakeDamage(10.0f);
+                    playerList[i].TakeDamage(GetCurrentAttack());
                 }
             }
             return (battleManager.textStuff.PrintAnnouncement("Dr. Sott Unleashes A Deadly attack", 1.0f));
         } else {
-            return (battleManager.textStuff.PrintAnnouncement("Dr. Sott Attempts to leave", 1.0f));
+            if (Random.Range(0f, currentLeaveChance) * (maxLeaveChance / 100f) < maxLeaveChance)
+            {
+                return (battleManager.textStuff.PrintAnnouncement("Dr. Sott is eyeing the door", 1.0f));
+                hasLeft = true;
+                isDead = true;
+            }
+            else
+            {
+                return (battleManager.textStuff.PrintAnnouncement("Dr. Sott attempted to leave", 1.0f));
+                // Dr. Sott doesn't leave
+            }
         }
     }
 
