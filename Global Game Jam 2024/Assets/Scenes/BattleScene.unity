@@ -1037,6 +1037,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 83.157
       objectReference: {fileID: 0}
+    - target: {fileID: 6649347238808884497, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
+      propertyPath: battleManager
+      value: 
+      objectReference: {fileID: 293732512}
     - target: {fileID: 6951484785700046750, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.4034764

@@ -49,8 +49,7 @@ public class Character_Michael : Character {
 
             
         }
-        
-
+                      
         if (Input.GetKeyUp(KeyCode.Alpha3)) {
             return false;
         }
