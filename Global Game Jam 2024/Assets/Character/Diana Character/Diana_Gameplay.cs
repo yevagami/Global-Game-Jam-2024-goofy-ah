@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +11,8 @@ public class DianaPassive : Passive {
     public Character_Michael Michael;
     float healingAmmount = 20.0f;
 
+    //public static event System.Action OnPassiveActivated;
+
     private void Awake() {
         //bm = GetComponentInParent<Character_Diana>().battleManager;
         if (bmPassive == null) { Debug.LogWarning("no bm ref snatched from component parent"); return; }
@@ -19,19 +20,19 @@ public class DianaPassive : Passive {
         Diana = bmPassive.GetDianaCharacter();
         Michael = bmPassive.GetMichaelCharacter();
         Adriel = bmPassive.GetAdrielCharacter();
-        if (Diana == null || Adriel == null || Michael == null) Debug.LogWarning("No refs in Diana Passive Gameplay");
+        if (Diana == null || Adriel == null || Michael == null) Debug.LogWarning("ref missing in Diana Passive Gameplay");
     }
 
     public override void ActivatePassive() {
-        if (Michael.currentHealth < Adriel.currentHealth && Michael.currentHealth < Diana.currentHealth) {
-            Diana.PlaySound("a little bit for you!~");
-            Michael.currentHealth += healingAmmount;
-        }else if (Adriel.currentHealth < Michael.currentHealth  && Adriel.currentHealth < Diana.currentHealth) {
+        if (bmPassive.GetMichaelCharacter().currentHealth < Adriel.currentHealth && bmPassive.GetMichaelCharacter().currentHealth < bmPassive.GetDianaCharacter().currentHealth) {
+            bmPassive.GetDianaCharacter().PlaySound("a little bit for you!~");
+            bmPassive.GetMichaelCharacter().currentHealth += healingAmmount;
+        }else if (Adriel.currentHealth < bmPassive.GetMichaelCharacter().currentHealth  && Adriel.currentHealth < bmPassive.GetDianaCharacter().currentHealth) {
             Adriel.currentHealth += healingAmmount;
-            Diana.PlaySound("a little bit for you~");
+            bmPassive.GetDianaCharacter().PlaySound("a little bit for you~");
         }else{
-            Diana.currentHealth += healingAmmount;
-            Diana.PlaySound("a little bit for you!");
+            bmPassive.GetDianaCharacter().currentHealth += healingAmmount;
+            bmPassive.GetDianaCharacter().PlaySound("a little bit for you!");
         }
     }
 
@@ -46,7 +47,6 @@ public class DianaSkill : Skill {
     
     private void Awake() {
         //bm = GetComponentInParent<Character_Diana>().battleManager;
-        
         if (bmSkill == null) {
             Debug.LogWarning("no bm ref snatched from component parent"); return;
         }
@@ -71,10 +71,10 @@ public class DianaSkill : Skill {
     }
     
     public override void ActivateSkill() {
+        useVoiceline();
         var damageDealt = Diana.currentAttack / 1.25f;
         other.TakeDamage(damageDealt);
         Diana.Heal(damageDealt);
-        useVoiceline();
     }
 }
 

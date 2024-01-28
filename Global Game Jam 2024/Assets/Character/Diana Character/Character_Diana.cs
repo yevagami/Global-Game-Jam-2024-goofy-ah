@@ -4,9 +4,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Character_Diana : Character {
+public class Character_Diana : Character
+{
     bool endTurn = false;
 
+    
+    
+    
+    public override bool PlaySound(string soundLabel)
+    {
+        if (characterSoundEffects.ContainsKey(soundLabel))
+        {
+            var clip = characterSoundEffects[soundLabel];
+            if (audioSource != null)
+            {
+                if (clip != null)
+                {
+                    audioSource.clip = clip;
+                    audioSource.Play();
+                    return true;
+                }
+                else
+                {
+                    Debug.LogWarning($"Audio clip for sound label '{soundLabel}' is null");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("audioSource component not attached");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Sound label '{soundLabel}' not in dictionary");
+        }
+
+        return false;
+    }
+
+    
     public override bool StartTurn(int currentSkillPointCount) {
         if (Input.GetKeyDown(KeyCode.D)) {
             Debug.Log("Diana's Turn Has Ended");
@@ -18,22 +54,24 @@ public class Character_Diana : Character {
 
     public override void usePassive()
     {
-        throw new NotImplementedException();
+        GetComponentInChildren<DianaPassive>().ActivatePassive();
     }
 
     public override void useSkill()
     {
-        throw new NotImplementedException();
+        GetComponentInChildren<DianaSkill>().ActivateSkill();
     }
 
     public override void useUltimate()
     {
-        throw new NotImplementedException();
+        GetComponentInChildren<DianaUltimate>().UseUltimate();
     }
 
-    void useOuchieVoiceline() {
+    void useOuchieVoiceline()
+    {
         int randomNumber = Random.Range(1, 4);
-        switch (randomNumber) {
+        switch (randomNumber)
+        {
             case 1:
                 PlaySound("son of a birch");
                 break;
@@ -45,13 +83,16 @@ public class Character_Diana : Character {
                 break;
         }
     }
-    public override void TakeDamage(float recievedDamage) {
+
+    public override void TakeDamage(float recievedDamage)
+    {
         useOuchieVoiceline();
 
-       base.TakeDamage(recievedDamage);
+        base.TakeDamage(recievedDamage);
     }
 
-    protected override void InitiateSoundEffects() {
+    protected override void InitiateSoundEffects()
+    {
         characterSoundEffects.Add("a little bit for you!", Resources.Load<AudioClip>("Sounds/Diana/Diana 1"));
         characterSoundEffects.Add("a little bit for you~", Resources.Load<AudioClip>("Sounds/Diana/Diana 2"));
         characterSoundEffects.Add("a little bit for you!~", Resources.Load<AudioClip>("Sounds/Diana/Diana 3"));
@@ -62,7 +103,7 @@ public class Character_Diana : Character {
         characterSoundEffects.Add("son of a birch", Resources.Load<AudioClip>("Sounds/Diana/Diana 8"));
         characterSoundEffects.Add("i dont like that...", Resources.Load<AudioClip>("Sounds/Diana/Diana 9"));
         characterSoundEffects.Add("heyy", Resources.Load<AudioClip>("Sounds/Diana/Diana 12"));
-        
+
         Debug.Log("Diana unfortunately can use her voice in game :(");
     }
 

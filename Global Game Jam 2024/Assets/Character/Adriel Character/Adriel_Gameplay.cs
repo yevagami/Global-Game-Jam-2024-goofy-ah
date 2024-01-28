@@ -60,8 +60,7 @@ public class AdrielSkill : Skill {
         }
     }
     
-    public override void ActivateSkill()
-    {
+    public override void ActivateSkill(){
         if (!Adriel.isTaunting) {
             useVoiceline();
             Adriel.isTaunting = true;

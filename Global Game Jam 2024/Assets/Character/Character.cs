@@ -62,36 +62,26 @@ public abstract class Character : MonoBehaviour {
     //names for our characters
     public new string name;
     //  sound effects
-    protected Dictionary<string, AudioClip> characterSoundEffects;
-    protected AudioSource audioSource;
+    public Dictionary<string, AudioClip> characterSoundEffects = new Dictionary<string, AudioClip>();
+    public AudioSource audioSource;
 
     private void Start() {
         if (audioSource == null) {
             audioSource = gameObject.AddComponent<AudioSource>();
-        } //audioSource = GetComponent<AudioSource>();
-        
+            //audioSource = gameObject.GetComponent<AudioSource>();
+        } 
+
         characterSoundEffects = new Dictionary<string, AudioClip>();
         InitiateSoundEffects();
-        
     }
 
     //  initiate all character sfx to the character sfx dictionary
     protected abstract void InitiateSoundEffects();
 
-    //  play the sound effect at the sound label
-    public void PlaySound(string soundLabel) {
-        if (characterSoundEffects.TryGetValue(soundLabel, out var clip)) {
-            if (audioSource != null) {
-                audioSource.clip = clip;
-                audioSource.Play();    
-            } else {
-                Debug.LogWarning("audioSource component not attached"); }
-        } else {
-            Debug.LogWarning("Sound label '{soundLabel}' not in dictionary"); }
-        
-    }
-    
-    abstract public bool StartTurn(int currentSkillPointCount);
+    // Play the sound effect at the sound label
+    public abstract bool PlaySound(string soundLabel);
+
+    public abstract bool StartTurn(int currentSkillPointCount);
 
     public virtual void TakeDamage(float recievedDamage){
         float damageTaken = 0;

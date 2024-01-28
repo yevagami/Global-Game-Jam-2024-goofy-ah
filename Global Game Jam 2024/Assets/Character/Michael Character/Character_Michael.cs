@@ -4,12 +4,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Character_Michael : Character
-{
-
+public class Character_Michael : Character {
     bool endTurn = false;
 
     // ReSharper disable Unity.PerformanceAnalysis
+    public override bool PlaySound(string soundLabel) {
+        if (characterSoundEffects.ContainsKey(soundLabel)) {
+            var clip = characterSoundEffects[soundLabel];
+            if (audioSource != null) {
+                if (clip != null) {
+                    audioSource.clip = clip;
+                    audioSource.Play();
+                    return true;
+                }else {
+                    Debug.LogWarning($"Audio clip for sound label '{soundLabel}' is null");
+                }
+            }else {
+                Debug.LogWarning("audioSource component not attached");
+            }
+        }else {
+            Debug.LogWarning($"Sound label '{soundLabel}' not in dictionary");
+        }
+
+        return false;
+    }
+    
+
     public override bool StartTurn(int currentSkillPointCount)
     {
         if (Input.GetKey(KeyCode.M))
@@ -17,67 +37,103 @@ public class Character_Michael : Character
             Debug.Log("Michael's Turn Has Ended");
             return false;
         }
+
         return true;
     }
 
-    private void Awake() {
+    private void Awake()
+    {
         name = "Michael";
         currentHealth = baseHealth;
         currentDefense = baseDefense;
-        baseAttack = 25.0f; currentAttack = baseAttack;
+        baseAttack = 25.0f;
+        currentAttack = baseAttack;
     }
 
-    public override void Update()
-    {
-        return;
-    }
-    private void useVoiceline() {
-        int randomNumber = Random.Range(1, 4);
-        switch (randomNumber) {
+    private bool useDamagedVoiceline() {
+        switch (Random.Range(1, 4)) {
             case 1:
                 PlaySound(isAltered ? "nya~" : "that hurt");
-                break;
+                return true;
             case 2:
                 PlaySound(isAltered ? "meow~" : "dont like pain");
-                break;
+                return true;
             case 3:
                 PlaySound(isAltered ? "nya~" : "UGH");
-                break;
-        } }
+                return true;
+        }
+
+        return false;
+    }
+
     public override void TakeDamage(float recievedDamage) {
-        useVoiceline();
+        if (useDamagedVoiceline()) { Debug.Log("ouchers"); }
         base.TakeDamage(recievedDamage);
     }
 
     protected override void InitiateSoundEffects() {
-        characterSoundEffects.Add("got out of here", Resources.Load<AudioClip>("Sounds/Michael/Michael 1"));
-        characterSoundEffects.Add("got a little closer", Resources.Load<AudioClip>("Sounds/Michael/Michael 2"));
-        characterSoundEffects.Add("more time together", Resources.Load<AudioClip>("Sounds/Michael/Michael 3"));
-        characterSoundEffects.Add("cuddled~", Resources.Load<AudioClip>("Sounds/Michael/Michael 4"));
-        characterSoundEffects.Add("bbg~", Resources.Load<AudioClip>("Sounds/Michael/Michael 5"));
-        characterSoundEffects.Add("pick me extended", Resources.Load<AudioClip>("Sounds/Michael/Michael 8"));    
-        characterSoundEffects.Add("pick me love me", Resources.Load<AudioClip>("Sounds/Michael/Michael 9"));    
-        characterSoundEffects.Add("that hurt", Resources.Load<AudioClip>("Sounds/Michael/Michael 11"));    
-        characterSoundEffects.Add("dont like pain", Resources.Load<AudioClip>("Sounds/Michael/Michael 12"));    
-        characterSoundEffects.Add("nya~", Resources.Load<AudioClip>("Sounds/Michael/Michael 14"));    
-        characterSoundEffects.Add("meow~", Resources.Load<AudioClip>("Sounds/Michael/Michael 15"));    
-        characterSoundEffects.Add("UGH", Resources.Load<AudioClip>("Sounds/Michael/Michael 16"));    
         
+        characterSoundEffects.Add("got out of here", Resources.Load<AudioClip>("Sounds/Michael/Michael 8"));
+        characterSoundEffects.Add("got a little closer", Resources.Load<AudioClip>("Sounds/Michael/Michael 9"));
+        characterSoundEffects.Add("more time together", Resources.Load<AudioClip>("Sounds/Michael/Michael 13"));
+        characterSoundEffects.Add("cuddled~", Resources.Load<AudioClip>("Sounds/Michael/Michael 11"));
+        characterSoundEffects.Add("bbg~", Resources.Load<AudioClip>("Sounds/Michael/Michael 12"));
+        characterSoundEffects.Add("pick me extended", Resources.Load<AudioClip>("Sounds/Michael/Michael 1"));
+        characterSoundEffects.Add("pick me love me", Resources.Load<AudioClip>("Sounds/Michael/Michael 2"));
+        characterSoundEffects.Add("that hurt", Resources.Load<AudioClip>("Sounds/Michael/Michael 3"));
+        characterSoundEffects.Add("dont like pain", Resources.Load<AudioClip>("Sounds/Michael/Michael 4"));
+        characterSoundEffects.Add("nya~", Resources.Load<AudioClip>("Sounds/Michael/Michael 5"));
+        characterSoundEffects.Add("meow~", Resources.Load<AudioClip>("Sounds/Michael/Michael 6"));
+        characterSoundEffects.Add("UGH", Resources.Load<AudioClip>("Sounds/Michael/Michael 7"));
+
         Debug.Log("adding Michael's sound files to the dictionary");
+    }
+
+    public void useSkillVoiceline()
+    {
+        int randomNumber = Random.Range(1, 4);
+        switch (randomNumber)
+        {
+            case 1:
+                PlaySound(isAltered ? "cuddled~" : "got out of here");
+                break;
+            case 2:
+                PlaySound(isAltered ? "bbg~" : "got a little closer");
+                break;
+            case 3:
+                PlaySound(isAltered ? "cuddled~" : "more time together");
+                break;
+        }
     }
 
     public override void useSkill()
     {
-        
+        useSkillVoiceline();
+        GetComponentInChildren<MichaelSkill>().ActivateSkill();
+    }
+
+    public void useUltimateVoiceline()
+    {
+        int randomNumber = Random.Range(1, 3);
+        switch (randomNumber)
+        {
+            case 1:
+                PlaySound("pick me extended");
+                break;
+            case 2:
+                PlaySound("pick me love me");
+                break;
+        }
     }
 
     public override void useUltimate()
     {
-        throw new NotImplementedException();
+        useUltimateVoiceline();
+        GetComponentInChildren<MichaelUltimate>().UseUltimate();
     }
 
     public override void usePassive()
     {
-        throw new NotImplementedException();
+        GetComponentInChildren<MichaelPassive>().ActivatePassive();
     }
 }

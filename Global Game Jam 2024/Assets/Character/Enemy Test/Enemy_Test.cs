@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Enemy_Test : Character
 {
-   
+    public override bool PlaySound(string soundLabel)
+    {
+        throw new System.NotImplementedException();
+    }
 
     public override bool StartTurn(int currentSkillPointCount) {
         int randomValue = Random.Range(0, 5);
@@ -41,6 +44,7 @@ public class Enemy_Test : Character
     }
 
     protected override void InitiateSoundEffects() {
-        return;
+        Debug.Log("Adriel has a voice! we're so happy : " + characterSoundEffects.Count);
+
     }
 }

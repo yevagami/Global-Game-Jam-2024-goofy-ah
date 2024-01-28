@@ -8,7 +8,7 @@ public class MichaelPassive : Passive {
     public Character_Michael Michael;
     
     private void Awake() {
-        Michael = GetComponent<Character_Michael>();
+        Michael = GetComponentInParent<Character_Michael>();
         if (Michael == null) {
             Debug.LogError("No Michael Reference in Michael Gameplay");
         }
@@ -38,26 +38,7 @@ public class MichaelSkill : Skill {
         }
     }
     
-    private void useVoiceline() {
-        bool uwu = Michael.isAltered;
-        int randomNumber = Random.Range(1, 4);
-        switch (randomNumber) {
-            case 1:
-                if (uwu) Michael.PlaySound("cuddled~");
-                else { Michael.PlaySound("got out of here");}
-                break;
-            case 2:
-                if (uwu) Michael.PlaySound("bbg~");
-                else { Michael.PlaySound("got a little closer");}
-                break;
-            case 3:
-                if (uwu) Michael.PlaySound("cuddled~");
-                else { Michael.PlaySound("more time together");}
-                break;
-        } }
-    
     public override void ActivateSkill() {
-        useVoiceline();
         enemy.TakeDamage(Michael.GetCurrentAttack());
         if (Michael.canFollowUp == true) {
             System.Random random = new();
@@ -75,28 +56,15 @@ public class MichaelUltimate : Ultimate
     float attackBoost = 50;
 
     private void Awake() {
-        Michael = GetComponent<Character_Michael>();
+        Michael = GetComponentInParent<Character_Michael>();
         if (Michael == null) {
             Debug.LogError("No Michael Reference in Michael Gameplay");
         }
     }
 
-    private void useVoiceline() {
-        int randomNumber = Random.Range(1, 3);
-        switch (randomNumber) {
-            case 1:
-                Michael.PlaySound("pick me extended");
-                break;
-            case 2:
-               Michael.PlaySound("pick me love me");
-                break;
-           
-        } 
-    }
-    
+
     public override void UseUltimate()
     {
-        useVoiceline();
         Michael.currentAttack += attackBoost;
         Michael.isAltered = true;
     }

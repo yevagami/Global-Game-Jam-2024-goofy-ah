@@ -76,10 +76,18 @@ public class DrSottLeaverAttack : Skill {
 
     public override void ActivateSkill() {
         useVoiceline();
-
-        adriel.TakeDamage(DrSottLeaver.GetCurrentAttack());
-        diana.TakeDamage(DrSottLeaver.GetCurrentAttack());
-        michael.TakeDamage(DrSottLeaver.GetCurrentAttack());
+        int randomNumber = Random.Range(1, 4);
+        switch (randomNumber) {
+            case 1:
+                adriel.TakeDamage(DrSottLeaver.GetCurrentAttack());
+                break;
+            case 2:
+                diana.TakeDamage(DrSottLeaver.GetCurrentAttack());
+                break;
+            case 3:
+                michael.TakeDamage(DrSottLeaver.GetCurrentAttack());
+                break; 
+        }
     }
 }
 
@@ -101,21 +109,10 @@ public class DrSottLeaverUltimate : Ultimate {
         if (DrSottLeaver == null) Debug.LogError("No Sott in DrScott Gameplay");
     }
     
-    private void useVoiceline() {
-        int randomNumber = Random.Range(1, 3);
-        switch (randomNumber) {
-            case 1:
-                DrSottLeaver.PlaySound("public variables...");
-                break;
-            case 2:
-                DrSottLeaver.PlaySound("public variables extended");
-                break;
-        }
-    }
+ 
 
     //  "Sets to Public" (makes us attack eachother)
     public override void UseUltimate() {
-        useVoiceline();
         
         bm.GetDianaCharacter().currentTeam = Character.Team.ENEMY;
         bm.GetMichaelCharacter().currentTeam = Character.Team.ENEMY;

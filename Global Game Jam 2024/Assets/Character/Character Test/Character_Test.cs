@@ -6,7 +6,12 @@ public class Character_Test : Character
 {
     bool endTurn = false;
     //Override some of the values
-    
+
+
+    public override bool PlaySound(string soundLabel)
+    {
+        throw new System.NotImplementedException();
+    }
 
     public override bool StartTurn(int currentSkillPointCount) {
         if(Input.GetKeyUp(KeyCode.A)) {

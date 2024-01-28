@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Character_DrSottLeaver : Character {
     //  Logic-based variables
@@ -17,6 +18,7 @@ public class Character_DrSottLeaver : Character {
     
     
     protected override void InitiateSoundEffects() {
+        
         characterSoundEffects.Add("dont piss me off", Resources.Load<AudioClip>("Sounds/Dr Sott/dont piss me off"));
         characterSoundEffects.Add("back to work", Resources.Load<AudioClip>("Sounds/Dr Sott/get back to work"));
         characterSoundEffects.Add("picking up fish", Resources.Load<AudioClip>("Sounds/Dr Sott/i need to go to pick up some fish"));
@@ -30,6 +32,7 @@ public class Character_DrSottLeaver : Character {
     }
 
     public override bool StartTurn(int currentSkillPointCount) {
+
         List<Character> playerList = battleManager.GetParticipants() ;
         for(int i = 0; i < playerList.Count; i++) {
             if (playerList[i].currentTeam == Team.FRIEND) {
@@ -39,6 +42,39 @@ public class Character_DrSottLeaver : Character {
         return (battleManager.textStuff.PrintAnnouncement("Scott Unleashed A Deadly attack", 1.0f));
     }
 
+    
+    public override bool PlaySound(string soundLabel)
+    {
+        if (characterSoundEffects.ContainsKey(soundLabel))
+        {
+            var clip = characterSoundEffects[soundLabel];
+            if (audioSource != null)
+            {
+                if (clip != null)
+                {
+                    audioSource.clip = clip;
+                    audioSource.Play();
+                    return true;
+                }
+                else
+                {
+                    Debug.LogWarning($"Audio clip for sound label '{soundLabel}' is null");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("audioSource component not attached");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Sound label '{soundLabel}' not in dictionary");
+        }
+
+        return false;
+    }
+
+    
     
     public override void TakeDamage(float recievedDamage)
     {
@@ -62,16 +98,27 @@ public class Character_DrSottLeaver : Character {
 
     public override void useSkill()
     {
-        throw new NotImplementedException();
+        GetComponentInChildren<DrSottLeaverAttack>().ActivateSkill();
     }
-
+    private void useUltimateVoiceline() {
+        int randomNumber = Random.Range(1, 3);
+        switch (randomNumber) {
+            case 1:
+                PlaySound("public variables...");
+                break;
+            case 2:
+                PlaySound("public variables extended");
+                break;
+        }
+    }
     public override void useUltimate()
     {
-        throw new NotImplementedException();
+        useUltimateVoiceline();
+        GetComponentInChildren<DrSottLeaverUltimate>().UseUltimate();
     }
 
     public override void usePassive()
     {
-        throw new NotImplementedException();
+        GetComponentInChildren<SottPassive>().ActivatePassive();
     }
 }

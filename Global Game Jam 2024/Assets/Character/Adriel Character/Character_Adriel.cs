@@ -19,6 +19,57 @@ public class Character_Adriel : Character
         return true;
     }
     
+    protected override void InitiateSoundEffects() {
+        base.characterSoundEffects.Add("it is what it is...", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 1"));   
+        base.characterSoundEffects.Add("it is what it is!", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 2"));   
+        base.characterSoundEffects.Add("it is what it is.", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 3"));   
+        base.characterSoundEffects.Add("shut up.", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 4"));   
+        base.characterSoundEffects.Add("the mask...", Resources.Load<AudioClip>("Sounds/Adriel/Adriel Skill1"));   
+        base.characterSoundEffects.Add("the mask!", Resources.Load<AudioClip>("Sounds/Adriel/Adriel Skill2"));   
+        base.characterSoundEffects.Add("respectfully...", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 5"));   
+        base.characterSoundEffects.Add("double giggle", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 6"));   
+        base.characterSoundEffects.Add("long giggle", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 7"));   
+        
+
+        
+        Debug.Log("Adriel has a voice! we're so happy : " + characterSoundEffects.Count);
+        
+    }
+    
+    
+    
+    public override bool PlaySound(string soundLabel) {
+        if (characterSoundEffects.ContainsKey(soundLabel)) {
+            var clip = characterSoundEffects[soundLabel];
+            if (audioSource != null)
+            {
+                if (clip != null)
+                {
+                    audioSource.clip = clip;
+                    audioSource.Play();
+                    return true;
+                }
+                else
+                {
+                    Debug.LogWarning($"Audio clip for sound label '{soundLabel}' is null");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("audioSource component not attached");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Sound label '{soundLabel}' not in dictionary");
+        }
+
+        return false;
+    }
+
+    
+    
+    
     void useOuchieVoiceline() {
         int randomNumber = Random.Range(1, 3);
         switch (randomNumber) {
@@ -30,21 +81,6 @@ public class Character_Adriel : Character
                 break;
         }
     }
-
-    protected override void InitiateSoundEffects() {
-        characterSoundEffects.Add("it is what it is...", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 1"));   
-        characterSoundEffects.Add("it is what it is!", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 2"));   
-        characterSoundEffects.Add("it is what it is.", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 3"));   
-        characterSoundEffects.Add("shut up.", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 4"));   
-        characterSoundEffects.Add("the mask...", Resources.Load<AudioClip>("Sounds/Adriel/Adriel Skill1"));   
-        characterSoundEffects.Add("the mask!", Resources.Load<AudioClip>("Sounds/Adriel/Adriel Skill2"));   
-        characterSoundEffects.Add("respectfully...", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 5"));   
-        characterSoundEffects.Add("double giggle", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 6"));   
-        characterSoundEffects.Add("long giggle", Resources.Load<AudioClip>("Sounds/Adriel/Adriel 7"));   
-        
-        Debug.Log("Adriel has a voice! we're so happy");
-    }
-
     public override void TakeDamage(float recievedDamage) {
         useOuchieVoiceline();
         base.TakeDamage(recievedDamage);
@@ -57,20 +93,21 @@ public class Character_Adriel : Character
         currentHealth = baseHealth;
         currentDefense = baseDefense;
         currentAttack = baseAttack;
+
     }
 
     public override void useSkill()
     {
-        throw new NotImplementedException();
+        GetComponentInChildren<AdrielSkill>().ActivateSkill();
     }
 
     public override void useUltimate()
     {
-        throw new NotImplementedException();
+        GetComponentInChildren<AdrielUltimate>().UseUltimate();
     }
 
     public override void usePassive()
     {
-        throw new NotImplementedException();
+        GetComponentInChildren<AdrielPassive>().ActivatePassive();
     }
 }
