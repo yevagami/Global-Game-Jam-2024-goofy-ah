@@ -32,9 +32,16 @@ public class Character_Michael : Character {
 
     public override bool StartTurn(int currentSkillPointCount)
     {
-        if (Input.GetKey(KeyCode.M))
-        {
-            Debug.Log("Michael's Turn Has Ended");
+        if(battleManager.skillPoints > 0) {
+            if (Input.GetKeyUp(KeyCode.Alpha1)) {
+                battleManager.useSkillPoint();
+                return (battleManager.textStuff.PrintAnnouncement("Michael uses The Yappening", 1.0f));
+            }
+        }
+        
+
+        if (Input.GetKeyUp(KeyCode.Alpha3)) {
+            battleManager.SkipTurn();
             return false;
         }
 

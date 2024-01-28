@@ -10,12 +10,17 @@ public class Character_Adriel : Character
     public float defenseOnTaunt = 30.0f;
     
     public override bool StartTurn(int currentSkillPointCount) {
-        if (Input.GetKeyUp(KeyCode.B)) { 
-        
-            Debug.Log("Adriel's Turn Has Ended");
-            return false;
+        if (battleManager.skillPoints > 0) {
+            if (Input.GetKeyUp(KeyCode.Alpha1)) {
+                battleManager.useSkillPoint();
+                return (battleManager.textStuff.PrintAnnouncement("Adriel uses Fake Enthusiasm", 1.0f));
+            }
         }
 
+        if (Input.GetKeyUp(KeyCode.Alpha3)) {
+            battleManager.SkipTurn();
+            return false;
+        }
         return true;
     }
     

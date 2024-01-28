@@ -44,8 +44,15 @@ public class Character_Diana : Character
 
     
     public override bool StartTurn(int currentSkillPointCount) {
-        if (Input.GetKeyDown(KeyCode.D)) {
-            Debug.Log("Diana's Turn Has Ended");
+        if (battleManager.skillPoints > 0) {
+            if (Input.GetKeyUp(KeyCode.Alpha1)) {
+                battleManager.useSkillPoint();
+                return (battleManager.textStuff.PrintAnnouncement("Diana uses Cheerlead", 1.0f));
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Alpha3)) {
+            battleManager.SkipTurn();
             return false;
         }
 
