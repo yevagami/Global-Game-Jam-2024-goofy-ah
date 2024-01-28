@@ -24,8 +24,14 @@ public class TextChange : MonoBehaviour
 
     public Image portraitRenderer;
 
+<<<<<<< Updated upstream
     [SerializeField] Slider healthSlider;
 
+=======
+    public TextMeshProUGUI passiveDescription;
+    public TextMeshProUGUI skillDescription;
+    public TextMeshProUGUI ultimateDescriprion;
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     public void setText() {
         Character currentChar = bm.GetParticipants()[bm.currentTurnIndex];
@@ -50,7 +56,29 @@ public class TextChange : MonoBehaviour
     }
     // Update is called once per frame
 
+    public void allDesctiptions() {
+        Character currentChar = bm.GetParticipants()[bm.currentTurnIndex];
+        if (currentChar.name == "Adriel") {
+            passiveDescription.text = "Makes enemies despare level inrease by 1 (nutural-> sad -> depressed)";
+            skillDescription.text = "Taunts enemies, gains 30% of damage reduction";
+            ultimateDescriprion.text = "Makes the enemies instantly depressed";
+        }
+        if (currentChar.name == "Diana")
+        {
+            passiveDescription.text = "Heals 10 HP to the teammate with lowest HP on the field every turn";
+            skillDescription.text = "Deal damage equal 30% of the attack, and heal self for the damage delt"; //stats
+            ultimateDescriprion.text = "Buffs the whole team , deals 50% od current HP ";
+        }
+        if (currentChar.name == "Michael") 
+        {
+            passiveDescription.text = "After using a skill there is a 50% chance to do a follow-up attack";
+            skillDescription.text = "Deals 25 damage";
+            ultimateDescriprion.text = "Increases follow up damage by 25 attack for two turn";
+        }
+    }
+
     private void FixedUpdate() {
         setText();
+        allDesctiptions();
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour {
@@ -221,6 +222,21 @@ public class BattleManager : MonoBehaviour {
             }
         }
     }
+
+    //hover the mouse over and then do a pop up
+    private bool isSkillButtonHovered = false;
+    public void OnPointerEnter(PointerEventData eventData) {
+        isSkillButtonHovered = true;
+        Debug.Log("Skill button is hovered!");
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        // This method is called when the pointer exits the button's area
+        isSkillButtonHovered = false;
+        Debug.Log("Skill button is not hovered.");
+    }
+
+
 
     public Button ultiBut;
     public void UltimateUsage() {
