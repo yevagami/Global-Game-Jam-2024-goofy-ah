@@ -88,14 +88,16 @@ public abstract class Character : MonoBehaviour {
     
     abstract public bool StartTurn(int currentSkillPointCount);
 
-    public virtual void TakeDamage(float recievedDamage) {
+    public virtual void TakeDamage(float recievedDamage){
         float damageTaken = 0;
         damageTaken = recievedDamage * (1 - (currentDefense / 100.0f));
         if ((currentHealth -= damageTaken) < 0) {
             currentHealth -= damageTaken;
-        } else {
+        }
+        else {
             isDead = true;
         }
+        
     }
 
     public virtual void Update() {

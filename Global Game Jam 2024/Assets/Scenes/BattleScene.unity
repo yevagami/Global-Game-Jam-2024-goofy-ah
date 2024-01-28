@@ -1682,8 +1682,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6951484785700046750, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1328903210}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3323741515223425302, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1120206004}
   m_SourcePrefab: {fileID: 100100000, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
+--- !u!1 &1120206003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3323741515223425302, guid: bbb778a77cb29074e8405dcd56b8174f, type: 3}
+  m_PrefabInstance: {fileID: 1120206002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1120206004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120206003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58e5dbaabb75b54d968c268aed3e8a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bmPassive: {fileID: 0}
+  Diana: {fileID: 0}
+  Adriel: {fileID: 0}
+  Michael: {fileID: 0}
 --- !u!1 &1132192235
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,16 +43,16 @@ public class MichaelSkill : Skill {
         int randomNumber = Random.Range(1, 4);
         switch (randomNumber) {
             case 1:
-                if (uwu) Debug.Log("meow");
-                else { }
+                if (uwu) Michael.PlaySound("cuddled~");
+                else { Michael.PlaySound("got out of here");}
                 break;
             case 2:
-                if (uwu) Debug.Log("meow");
-                else { }
+                if (uwu) Michael.PlaySound("bbg~");
+                else { Michael.PlaySound("got a little closer");}
                 break;
             case 3:
-                if (uwu) Debug.Log("meow");
-                else { }
+                if (uwu) Michael.PlaySound("cuddled~");
+                else { Michael.PlaySound("more time together");}
                 break;
         } }
     
@@ -80,9 +80,23 @@ public class MichaelUltimate : Ultimate
             Debug.LogError("No Michael Reference in Michael Gameplay");
         }
     }
+
+    private void useVoiceline() {
+        int randomNumber = Random.Range(1, 3);
+        switch (randomNumber) {
+            case 1:
+                Michael.PlaySound("pick me extended");
+                break;
+            case 2:
+               Michael.PlaySound("pick me love me");
+                break;
+           
+        } 
+    }
     
     public override void UseUltimate()
     {
+        useVoiceline();
         Michael.currentAttack += attackBoost;
         Michael.isAltered = true;
     }
